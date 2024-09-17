@@ -1,0 +1,48 @@
+.contact-details-card {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    justify-content: flex-start; /* Align the content to the left */
+    background: #130f2a;
+    border-radius: 0.65rem;
+    border: 1.5px solid #6751b9;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    color: white;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+.contact-details-card .icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background: #3d3072;
+    margin-right: 10px; /* Add some spacing between the icon and text */
+}
+
+.icon img {
+    width: 1.8rem;
+    height: auto;
+    object-fit: contain;
+}
+
+.contact-details-card p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 10px;
+    white-space: nowrap; /* Ensure the paragraph does not wrap */
+}
+
+.contact-details-card a {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
