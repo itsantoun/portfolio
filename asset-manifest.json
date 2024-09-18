@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.b57fcc95.css",
+    "main.js": "/portfolio/static/js/main.5db861d5.js",
+    "static/js/787.38f16daf.chunk.js": "/portfolio/static/js/787.38f16daf.chunk.js",
+    "static/media/sl_z_072523_61700_01.jpg": "/portfolio/static/media/sl_z_072523_61700_01.e4ac3a949248f8da4590.jpg",
+    "static/media/tourinLeb.png": "/portfolio/static/media/tourinLeb.c0fd7fbaa6f4dbd6a37a.png",
+    "static/media/me2.png": "/portfolio/static/media/me2.5c562b5c4bcf0791b8a3.png",
+    "static/media/RoomBookingWebsite.png": "/portfolio/static/media/RoomBookingWebsite.f4b2bc98d2b221418f68.png",
+    "static/media/me.png": "/portfolio/static/media/me.4bf1ac68825625c1d22e.png",
+    "static/media/StudentServiceHelper.png": "/portfolio/static/media/StudentServiceHelper.2c94cb93fd05cd4039ac.png",
+    "static/media/os.png": "/portfolio/static/media/os.8b577ba186d8d0b0a788.png",
+    "static/media/languages.png": "/portfolio/static/media/languages.ed6aada5649dd0dd6ad4.png",
+    "static/media/tools.png": "/portfolio/static/media/tools.6a092232f30bfcd589af.png",
+    "static/media/frontend2.png": "/portfolio/static/media/frontend2.4512a22a330a42a43673.png",
+    "static/media/imgbin_linkedin-png.png": "/portfolio/static/media/imgbin_linkedin-png.be7b2ea49987647fe2f8.png",
+    "static/media/backend.png": "/portfolio/static/media/backend.9b049d4d6f1bc711e53f.png",
+    "static/media/imgbin_envelope-mail-icon-png.png": "/portfolio/static/media/imgbin_envelope-mail-icon-png.5ef33862ec0629c1996a.png",
+    "static/media/slick.svg": "/portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/portfolio/index.html",
+    "main.b57fcc95.css.map": "/portfolio/static/css/main.b57fcc95.css.map",
+    "main.5db861d5.js.map": "/portfolio/static/js/main.5db861d5.js.map",
+    "787.38f16daf.chunk.js.map": "/portfolio/static/js/787.38f16daf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b57fcc95.css",
+    "static/js/main.5db861d5.js"
+  ]
+}
