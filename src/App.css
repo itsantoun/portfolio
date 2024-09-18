@@ -1,8 +1,13 @@
-.container{
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
+.container{
   max-width: 1300px !important;
   margin: 0 auto;
   position: relative;
+  /* animation: fadeIn 1s ease-in-out; */
 }
 
 @media (max-width: 1300px){
