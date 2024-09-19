@@ -1,15 +1,31 @@
-import React from 'react'
-import './ContactInfoCard.css'
+// import React from 'react'
+// import './ContactInfoCard.css'
 
-const ContactInfoCard = ({iconUrl, text, link }) => {
+// const ContactInfoCard = ({iconUrl, text, link }) => {
+//   return (
+//     <a href={link} target="_blank" rel="noopener noreferrer" className='contact-details-card'>
+//     <div className='icon'>
+//       <img src={iconUrl} alt={text} />
+//     </div>
+//     <p>{text}</p>
+//   </a>
+//   )
+// }
+
+// export default ContactInfoCard
+
+
+import React from 'react';
+import './ContactInfoCard.css';
+
+const ContactInfoCard = ({ iconUrl, link }) => {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer" className='contact-details-card'>
-    <div className='icon'>
-      <img src={iconUrl} alt={text} />
-    </div>
-    <p>{text}</p>
-  </a>
+      <div className='icon'>
+        <img src={iconUrl} alt="contact icon" />
+      </div>
+    </a>
   )
 }
 
-export default ContactInfoCard
+export default ContactInfoCard;

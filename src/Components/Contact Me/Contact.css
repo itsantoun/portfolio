@@ -1,29 +1,41 @@
 .contact-container {
     margin: 4rem 0;
     position: relative;
-    margin-left: 1%;
-    margin-bottom: 2rem;
-}
-
-.contact-container h5 {
-    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .contact-container h5 {
+    font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.contact-content {
-    display: flex;
-    gap: 1.5rem; /* Reduced the gap between cards */
-    margin-left: 1%;
     margin-bottom: 2rem;
-}
-
-/* For smaller screens */
-@media (max-width: 768px) {
+    color: #fff;
+    text-align: left;
+    margin-left: 2%;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
     .contact-content {
-      flex-direction: column; /* Stack items vertically */
-      gap: 1rem; /* Further reduce the gap for smaller screens */
-      margin-left: 1%;
-      margin-bottom: 2rem;
+      flex-direction: row; /* Ensure cards align horizontally */
+      align-items: center;
+      justify-content: center; /* Center the content */
+      gap: 0.5rem; /* Adjust gap between the cards */
+      margin-left: 5%; /* Remove margin on mobile */
     }
-}
+    
+    .contact-details-card {
+      display: flex;
+      flex-direction: row; /* Cards aligned horizontally */
+      align-items: center;
+      justify-content: center;
+      gap: 1rem; /* Space between icon and text (if any) */
+      padding: 1rem; /* Adjust padding for better spacing */
+    }
+  }
+  

@@ -55,9 +55,11 @@
     visibility: hidden; /* Hide element */
     transform: translateY(20px); /* Slide in from below */
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    display: none; /* Hide element and remove space when not visible */
 }
 
 .skills-info.show {
+    display: block; /* Display when active */
     opacity: 1; /* Make visible */
     visibility: visible; /* Ensure element is visible */
     transform: translateY(0); /* Slide to final position */
@@ -76,12 +78,26 @@
 @media (max-width: 768px) {
     .skills-content {
         flex-direction: column; /* Stack items vertically on mobile */
-        gap: 3rem;
+        gap: 1rem; /* Adjust gap between items */
     }
 
     .skills,
     .skills-info {
         width: 100%;
+    }
+
+    .skills-info {
+        display: none; /* Ensure no space is occupied when hidden */
+        opacity: 0; /* Ensure no space is occupied */
+        visibility: hidden; /* Ensure no space is occupied */
+        transform: translateY(20px); /* Ensure element stays hidden */
+    }
+
+    .skills-info.show {
+        display: block; /* Display when active */
+        opacity: 1; /* Make visible */
+        visibility: visible; /* Ensure element is visible */
+        transform: translateY(0); /* Slide to final position */
     }
 
     .skills-container h5 {
@@ -96,19 +112,9 @@
     }
 }
 
-@media (max-width: 600px) {
-    .skills-container {
-        padding: 0;
+@media (min-width: 768px) {
+    /* On larger screens, display the skills-info */
+    .skills-info {
+        display: block;
     }
-}
-
-/* Button interaction */
-.skills-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.skills-card:hover,
-.skills-card:focus {
-    transform: scale(1.05); /* Slightly enlarge */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
