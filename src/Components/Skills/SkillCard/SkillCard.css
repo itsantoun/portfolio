@@ -50,10 +50,8 @@
 
 @media (max-width: 1025px) {
     .skills-card {
-        padding: 1.5rem; /* Adjust padding for tablets */
-        max-width: 18rem; /* Adjust max-width for tablets */
-        width: 90%; /* Ensure full width */
-        height: 100%; /* Set a fixed height */
+        padding: 1.5rem; /* Adjust padding for iPad mode */
+        transition: all 0.3s ease; /* Ensure smooth transition */
     }
 
     .skills-card span {
@@ -63,7 +61,8 @@
     .skill-icon {
         width: 3rem;
         height: 3rem;
-        top: -1.5rem; /* Adjusted for tablets */
+        top: -1.5rem;
+        transition: transform 0.3s ease; /* Smooth transition for icon animation */
     }
 
     .skill-icon img {
