@@ -1,12 +1,11 @@
-.skills-container{
- 
+.skills-container {
     margin: 4rem 0;
     position: relative;
+    padding: 0 1rem; /* Prevent content from touching the edges */
 }
 
 .skills-container::after,
-.skills-container::before{
-
+.skills-container::before {
     content: "";
     width: 28rem;
     height: 28rem;
@@ -17,77 +16,99 @@
     filter: blur(200px);
 }
 
-.skills-container::after{
+.skills-container::after {
     top: -3rem;
     left: -5rem;
 }
 
-.skills-container::before{
-background: #9e51b9;
-bottom: 0rem;
-right: 0rem;
+.skills-container::before {
+    background: #9e51b9;
+    bottom: 0rem;
+    right: 0rem;
 }
 
-.skills-container h5{
+.skills-container h5 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 3.5rem;
 }
 
-.skills-content{
+.skills-content {
     display: flex;
     align-items: flex-start;
     gap: 3rem;
+    transition: all 0.3s ease; /* Smooth transition for layout changes */
 }
 
-.skills{
+.skills {
     flex: 1;
     display: grid;
     grid-gap: 3rem;
     grid-template-columns: repeat(2, 1fr);
+    order: 1; /* Ensure skills are first by default */
 }
 
-.skills-info{
+.skills-info {
     flex: 1;
+    order: 2; /* Ensure skills-info appears second by default */
+    opacity: 0; /* Start as hidden */
+    visibility: hidden; /* Hide element */
+    transform: translateY(20px); /* Slide in from below */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
-@media (max-width:1025px){
-    .skills{
+.skills-info.show {
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Ensure element is visible */
+    transform: translateY(0); /* Slide to final position */
+}
+
+@media (max-width: 1025px) {
+    .skills {
         padding-left: 1rem;
     }
     .skills,
-    .skills-content{
+    .skills-content {
         grid-gap: 2rem;
     }
 }
 
-@media (max-width:768px){
-
-    .skills-content{
-        flex-direction: column-reverse;
+@media (max-width: 768px) {
+    .skills-content {
+        flex-direction: column; /* Stack items vertically on mobile */
         gap: 3rem;
     }
 
     .skills,
-    .skills-info{
+    .skills-info {
         width: 100%;
     }
 
-    .skills-container h5{
+    .skills-container h5 {
         font-size: 1.3rem;
         margin-bottom: 2rem;
-
     }
 
     .skills-container::after,
-    .skills-container::before{
+    .skills-container::before {
         width: 18rem;
         height: 18rem;
     }
 }
 
-@media (max-width:600px){
-.skills-container{
-    padding: 0;
+@media (max-width: 600px) {
+    .skills-container {
+        padding: 0;
+    }
 }
+
+/* Button interaction */
+.skills-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-card:hover,
+.skills-card:focus {
+    transform: scale(1.05); /* Slightly enlarge */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }

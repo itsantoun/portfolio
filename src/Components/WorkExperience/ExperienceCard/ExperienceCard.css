@@ -47,8 +47,8 @@
 /* Media queries for responsive design */
 @media (max-width: 768px) {
     .work-experience-card {
-        padding: 1rem;
-        margin: 1rem 0.5rem;
+        padding: 2rem;
+        margin: 1rem;
         max-width: 100%; /* Full width on smaller screens */
     }
 
@@ -68,7 +68,8 @@
 @media (max-width: 480px) {
     .work-experience-card {
         padding: 0.8rem;
-        margin: 0.5rem;
+        margin-left: 1%;
+        margin-bottom: 2rem;
     }
 
     .work-experience-card h6 {

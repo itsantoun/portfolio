@@ -111,12 +111,12 @@ cursor: pointer;
 @media (max-width: 425px)
 {
     .logo{
-        width: 18rem;
+        width: 5rem;
         height: auto;
+        display: block;
+        margin: 0 auto; 
     }
 }
-
-
 
 @media (max-width: 769px)
 {

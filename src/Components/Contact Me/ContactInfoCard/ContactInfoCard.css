@@ -3,14 +3,15 @@
     flex-direction: row;
     text-decoration: none;
     align-items: center;
-    justify-content: flex-start; /* Align the content to the left */
+    justify-content: flex-start;
     background: #130f2a;
     border-radius: 0.65rem;
     border: 1.5px solid #6751b9;
     padding: 1.5rem;
     margin-bottom: 2rem;
     color: white;
-    white-space: nowrap; /* Prevents text wrapping */
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
 .contact-details-card .icon {
@@ -21,7 +22,7 @@
     justify-content: center;
     border-radius: 0.5rem;
     background: #3d3072;
-    margin-right: 10px; /* Add some spacing between the icon and text */
+    margin-right: 10px;
 }
 
 .icon img {
@@ -35,7 +36,7 @@
     font-weight: 400;
     margin: 0;
     margin-left: 10px;
-    white-space: nowrap; /* Ensure the paragraph does not wrap */
+    white-space: nowrap;
 }
 
 .contact-details-card a {
@@ -45,4 +46,29 @@
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contact-details-card {
+        flex-direction: row; /* Keep text and icon in a row */
+        padding: 1rem; /* Reduce padding for smaller screens */
+        white-space: normal; /* Allow text wrapping if needed */
+    }
+
+    .contact-details-card .icon {
+        width: 3rem; /* Adjust icon size for smaller screens */
+        height: 3rem;
+        margin-right: 8px; /* Adjust spacing */
+    }
+
+    .icon img {
+        width: 1.5rem; /* Adjust image size for smaller screens */
+    }
+
+    .contact-details-card p {
+        font-size: 0.85rem; /* Slightly reduce text size */
+        margin-left: 8px; /* Adjust margin */
+        white-space: nowrap; /* Ensure text doesn't wrap */
+    }
 }

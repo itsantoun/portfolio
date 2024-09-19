@@ -1,13 +1,16 @@
-.skills-info-card{
+.skills-info-card {
     min-height: 23rem;
-    min-width: 30rem;
+    width: 100%; /* Ensure card width is responsive */
+    max-width: 30rem; /* Prevent card from exceeding 30rem */
     border-radius: 0.65rem;
     border: 1.5px solid #6751b9;
     background: rgba(22, 17, 47, 0.398);
     backdrop-filter: blur(1rem);
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    overflow: hidden; /* Prevent content overflow */
 }
 
-.skills-info-card h6{
+.skills-info-card h6 {
     font-size: 1.2rem;
     font-weight: 500;
     padding: 0.8rem 2rem;
@@ -18,26 +21,27 @@
     border-bottom: 1.5px solid #6751b9;
 }
 
-.skills-info-content{
+.skills-info-content {
     padding: 2rem;
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
-.skills-info{
+.skills-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.skill-info p{
+.skill-info p {
     font-size: 1rem;
     font-weight: 500;
 }
 
-.skill-info .percentage{
+.skill-info .percentage {
     color: #ddBcfa;
 }
 
-.skill-progress-bg{
+.skill-progress-bg {
     width: 100%;
     height: 0.5rem;
     background-color: #382e68;
@@ -46,24 +50,45 @@
     overflow: hidden;
 }
 
-.skill-progress{
+.skill-progress {
     width: 0%;
     height: 0.5rem;
     background: linear-gradient(90deg, #aa94fe -50%, #7d60e6 50%);
     border-radius: 0.5rem;
-    transition: all 0.5 ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-@media (max-width:1025px){
-    .skills-info-card h6{
+/* For tablets and smaller screens */
+@media (max-width: 1025px) {
+    .skills-info-card h6 {
         font-size: 1.1rem;
     }
-   .skill-info p{
-    font-size: 0.9rem;
-   }
 
-   .skill-info-content{
-    padding: 1.5rem;
-   }
-    
+    .skill-info p {
+        font-size: 0.9rem;
+    }
+
+    .skills-info-content {
+        padding: 1.5rem;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .skills-info-card {
+        max-width: 100%; /* Ensure card fits within viewport width */
+    }
+
+    .skills-info-card h6 {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.6rem 1.5rem; /* Adjust padding */
+    }
+
+    .skill-info p {
+        font-size: 0.8rem; /* Adjust font size */
+    }
+
+    .skills-info-content {
+        padding: 1rem; /* Adjust padding */
+    }
 }

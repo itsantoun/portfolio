@@ -1,15 +1,29 @@
-.contact-container{
+.contact-container {
     margin: 4rem 0;
     position: relative;
+    margin-left: 1%;
+    margin-bottom: 2rem;
 }
 
-.contact-container h5{
+.contact-container h5 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
-.contact-content{
+.contact-content {
     display: flex;
-    gap: 3rem;
+    gap: 1.5rem; /* Reduced the gap between cards */
+    margin-left: 1%;
+    margin-bottom: 2rem;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column; /* Stack items vertically */
+      gap: 1rem; /* Further reduce the gap for smaller screens */
+      margin-left: 1%;
+      margin-bottom: 2rem;
+    }
 }
