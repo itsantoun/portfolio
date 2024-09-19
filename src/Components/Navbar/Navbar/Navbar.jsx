@@ -44,7 +44,7 @@
                 offset={-70} 
                 duration={500} 
                 className='menu-item'>
-                  Skills
+                  Technical Proficiency
                 </Link>
               </li>
 

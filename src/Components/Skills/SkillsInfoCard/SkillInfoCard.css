@@ -1,5 +1,5 @@
 .skills-info-card {
-    min-height: 23rem;
+    min-height: 23rem; /* Minimum height */
     width: 100%; /* Ensure card width is responsive */
     max-width: 30rem; /* Prevent card from exceeding 30rem */
     border-radius: 0.65rem;
@@ -60,6 +60,10 @@
 
 /* For tablets and smaller screens */
 @media (max-width: 1025px) {
+    .skills-info-card {
+        max-width: 25rem; /* Adjust max-width for tablets */
+    }
+
     .skills-info-card h6 {
         font-size: 1.1rem;
     }
@@ -77,6 +81,7 @@
 @media (max-width: 768px) {
     .skills-info-card {
         max-width: 100%; /* Ensure card fits within viewport width */
+        min-height: 20rem; /* Adjust min-height for smaller screens */
     }
 
     .skills-info-card h6 {
