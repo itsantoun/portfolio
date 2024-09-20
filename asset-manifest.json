@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.e3fd658e.css",
-    "main.js": "/portfolio/static/js/main.d1556614.js",
+    "main.css": "/portfolio/static/css/main.79903685.css",
+    "main.js": "/portfolio/static/js/main.61d0bcc2.js",
     "static/js/787.38f16daf.chunk.js": "/portfolio/static/js/787.38f16daf.chunk.js",
     "static/media/sl_z_072523_61700_01.jpg": "/portfolio/static/media/sl_z_072523_61700_01.e4ac3a949248f8da4590.jpg",
     "static/media/tourinLeb.png": "/portfolio/static/media/tourinLeb.c0fd7fbaa6f4dbd6a37a.png",
@@ -11,6 +11,7 @@
     "static/media/StudentServiceHelper.png": "/portfolio/static/media/StudentServiceHelper.2c94cb93fd05cd4039ac.png",
     "static/media/os.png": "/portfolio/static/media/os.8b577ba186d8d0b0a788.png",
     "static/media/languages.png": "/portfolio/static/media/languages.ed6aada5649dd0dd6ad4.png",
+    "static/media/design.png": "/portfolio/static/media/design.f721d6300da36dde4a81.png",
     "static/media/tools.png": "/portfolio/static/media/tools.6a092232f30bfcd589af.png",
     "static/media/frontend2.png": "/portfolio/static/media/frontend2.4512a22a330a42a43673.png",
     "static/media/imgbin_envelope-mail-icon-png.png": "/portfolio/static/media/imgbin_envelope-mail-icon-png.20e13759bafc29583b97.png",
@@ -21,12 +22,12 @@
     "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio/index.html",
-    "main.e3fd658e.css.map": "/portfolio/static/css/main.e3fd658e.css.map",
-    "main.d1556614.js.map": "/portfolio/static/js/main.d1556614.js.map",
+    "main.79903685.css.map": "/portfolio/static/css/main.79903685.css.map",
+    "main.61d0bcc2.js.map": "/portfolio/static/js/main.61d0bcc2.js.map",
     "787.38f16daf.chunk.js.map": "/portfolio/static/js/787.38f16daf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3fd658e.css",
-    "static/js/main.d1556614.js"
+    "static/css/main.79903685.css",
+    "static/js/main.61d0bcc2.js"
   ]
 }
