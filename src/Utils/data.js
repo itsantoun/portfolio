@@ -15,11 +15,13 @@ export const SKILLS = [
         title: "Backend",
         icon: require("../Assets/backend.png"),
         skills: [
+            { skill: "Node.js" },
             { skill: "Oracle" },
             { skill: "SQL Server" },
             { skill: "SQL Express" },
             { skill: "MongoDB" },
             { skill: "FireBase" },
+
         ],
     },
     {
@@ -31,6 +33,7 @@ export const SKILLS = [
             { skill: "Google Collab" },
             { skill: "Eclipse IDE" },
             { skill: "Docker" },
+            { skill: "Postman" },
         ],
     },
     {
@@ -56,6 +59,15 @@ export const SKILLS = [
             { skill: "MS Windows" },
             { skill: "MacOS" },
             { skill: "Linux (Ubuntu,Kali Linux)" }
+        ],
+    },
+    {
+        title: "Design Tools",
+        icon: require("../Assets/design.png"),
+        skills: [
+            { skill: "Adobe XD" },
+            { skill: "Photoshop" },
+            { skill: "Figma" }
         ],
     },
     // {

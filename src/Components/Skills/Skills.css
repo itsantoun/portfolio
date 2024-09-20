@@ -13,7 +13,8 @@
     background: #7c66e3;
     position: absolute;
     z-index: -1;
-    filter: blur(200px);
+    filter: blur(200px); /* High blur effect */
+    transition: all 0.3s ease; /* Smooth transition for all screens */
 }
 
 .skills-container::after {
@@ -51,11 +52,11 @@
 .skills-info {
     flex: 1;
     order: 2; /* Ensure skills-info appears second by default */
-    opacity: 0; /* Start as hidden */
-    visibility: hidden; /* Hide element */
+    opacity: 0;
+    visibility: hidden;
     transform: translateY(20px); /* Slide in from below */
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    display: none; /* Hide element and remove space when not visible */
+    display: none;
 }
 
 .skills-info.show {
@@ -65,13 +66,29 @@
     transform: translateY(0); /* Slide to final position */
 }
 
+/* Specific adjustments for tablet mode */
 @media (max-width: 1025px) {
+    /* Reduce the size of the blurred elements for better performance */
+    .skills-container::after,
+    .skills-container::before {
+        width: 18rem; /* Reduce size */
+        height: 18rem; /* Reduce size */
+        filter: blur(100px); /* Reduce blur intensity */
+    }
+
+    /* Apply padding only to .skills */
     .skills {
         padding-left: 1rem;
-    }
-    .skills,
-    .skills-content {
         grid-gap: 2rem;
+    }
+
+    .skills-content {
+        gap: 2rem; /* Adjust the gap as needed */
+    }
+
+    /* Ensure the skills-info maintains the same animation behavior */
+    .skills-info {
+        transition: opacity 1.5s ease, visibility 1s ease, transform 1.5s ease; /* Faster, smoother animations */
     }
 }
 
@@ -87,17 +104,17 @@
     }
 
     .skills-info {
-        display: none; /* Ensure no space is occupied when hidden */
-        opacity: 0; /* Ensure no space is occupied */
-        visibility: hidden; /* Ensure no space is occupied */
-        transform: translateY(20px); /* Ensure element stays hidden */
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
     }
 
     .skills-info.show {
-        display: block; /* Display when active */
-        opacity: 1; /* Make visible */
-        visibility: visible; /* Ensure element is visible */
-        transform: translateY(0); /* Slide to final position */
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .skills-container h5 {
@@ -107,14 +124,13 @@
 
     .skills-container::after,
     .skills-container::before {
-        width: 18rem;
-        height: 18rem;
+        width: 20rem; /* Further reduce on mobile */
+        height: 20rem;
     }
 }
 
 @media (min-width: 768px) {
-    /* On larger screens, display the skills-info */
     .skills-info {
-        display: block;
+        display: block; /* Display the skills-info block by default */
     }
 }
