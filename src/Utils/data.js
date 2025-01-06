@@ -66,7 +66,7 @@ export const SKILLS = [
         icon: require("../Assets/design.png"),
         skills: [
             { skill: "Adobe XD" },
-            { skill: "Photoshop" },
+            { skill: "Adobe Photoshop" },
             { skill: "Figma" }
         ],
     },
@@ -146,6 +146,24 @@ export const WORK_EXPERIENCE = [
 
 
 export const MY_PROJECTS = [
+    {
+        icon: require("../Assets/melodius.png"),
+        title: "Melodius",
+        date: "Final Project",
+        url: "https://github.com/itsantoun/Melodius-Final-Project.git",
+        responsibilities: [
+            "A social media platform that connects musicians together with the ability to find jobs, expand their network and show their work."
+        ],
+    },
+    {
+        icon: require("../Assets/RoomBookingWebsite.png"),
+        title: "Room Booking Website",
+        date: "Summer 2023",
+        url: "https://github.com/itsantoun/roomBooking-FrontEnd",
+        responsibilities: [
+            "The room booking website helps employees at companies book rooms online."
+        ],
+    },
     {
         icon: require("../Assets/tourinLeb.png"),
         title: "Tour in Lebanon",
