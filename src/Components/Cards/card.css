@@ -1,0 +1,155 @@
+/* Base Card Styling */
+.card {
+    background-color: #ECECEC; /* Light background color */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+    justify-content: center; /* Center content within the card */
+    border-radius: 23px;
+    padding: 3vw; /* Responsive padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+    transition: all 0.3s ease-in-out; /* Smooth hover transitions */
+    max-width: 90%; /* Limit width for better responsiveness */
+    position: relative; /* Ensure stacking context */
+    overflow: visible;
+}
+
+/* Hover Effects */
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: visible; /* Prevents content from overflowing */
+    word-wrap: break-word; /* Ensures long words wrap correctly */
+}
+
+/* Title Styling */
+.card-content h3 {
+    font-size: clamp(16px, 2vw, 20px); /* Responsive title size */
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* Skill Item Container */
+.skill-item {
+    display: inline-block;
+    position: relative;
+    margin: 1vw; /* Responsive margin */
+}
+
+/* Skill Icon Styling - Monochrome effect by default */
+.skill-icon {
+    width: clamp(40px, 5vw, 50px); /* Responsive icon size */
+    height: clamp(40px, 5vw, 50px);
+    display: block;
+    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+    filter: grayscale(100%);
+}
+
+.skill-name {
+    font-size: clamp(10px, 1.5vw, 14px); /* Responsive font size */
+    font-weight: 500;
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #ECECEC;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px gray;
+    z-index: 9999; /* Ensure it's on top */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Show Skill Name on Hover */
+.skill-item:hover .skill-name {
+    opacity: 1;
+}
+
+/* Remove Monochrome on Hover */
+.card:hover .skill-item .skill-icon {
+    filter: grayscale(0%);
+}
+
+/* ===== Responsive Adjustments ===== */
+
+/* Tablet Screens (<= 1024px) */
+@media (max-width: 1024px) {
+    .card {
+        padding: 3vw;
+        max-width: 85%; /* Slightly larger width on tablets */
+    }
+
+    .skill-item {
+        margin: 2vw;
+    }
+
+    .skill-icon {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .skill-name {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-content {
+        flex-direction: row; /* Stack cards horizontally */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
+        justify-content: flex-start; /* Align cards from the start */
+        gap: 10px; /* Add spacing between cards */
+        padding: 10px;
+        width: 100%;
+    }
+
+    .card {
+        width: auto; /* Allow cards to take natural width */
+        flex: 0 0 80%; /* Make sure cards have a fixed width but allow scrolling */
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .card-content h3 {
+        font-size: 4vw; /* Adjust heading size */
+    }
+
+    .skill-item {
+        margin: 3vw;
+    }
+
+    .skill-icon {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .skill-name {
+        font-size: 3vw;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .card {
+        width: auto;
+        flex: 0 0 75%; /* Reduce card size slightly for smaller screens */
+        margin: 10px;
+    }
+}

@@ -1,0 +1,113 @@
+// import React, { useEffect } from 'react';
+// import './Skills.css';
+// import Cards from '../Cards/cards';
+// import { SKILLS } from '../../Utils/data';
+
+// function Skills() {
+//   useEffect(() => {
+//     const observer = new IntersectionObserver((entries, observer) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           entry.target.classList.add('in-view');
+//           observer.unobserve(entry.target);
+//         }
+//       });
+//     }, { threshold: 0.5 });
+
+//     const skillItems = document.querySelectorAll('.skill-item');
+//     skillItems.forEach(item => observer.observe(item));
+
+//     return () => skillItems.forEach(item => observer.unobserve(item));
+//   }, []);
+
+//   return (
+    
+//     <section className="skills-container">
+//       <h3 className='header'>
+//   Skills
+//   <span className="emoji">✍️</span>
+// </h3>
+
+//       {/* <div className="skills-content">
+//         <div className="card center">
+//           <Cards title={SKILLS[3].title}>
+//             {SKILLS[3].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+
+//         <div className="card center-bottom">
+//           <Cards title={SKILLS[6].title}>
+//             {SKILLS[6].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+
+//         <div className="card top-left">
+//         <Cards title={SKILLS[0].title}>
+//             {SKILLS[0].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+
+//         <div className="card bottom-left">
+//           <Cards title={SKILLS[5].title}>
+//             {SKILLS[5].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+
+//         <div className="card bottom-left-second">
+//         <Cards title={SKILLS[4].title}>
+//             {SKILLS[4].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+
+//         <div className="card top-right">
+//         <Cards title={SKILLS[1].title}>
+//             {SKILLS[1].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+         
+//         </div>
+//         <div className="card bottom-right">
+//         <Cards title={SKILLS[2].title}>
+//             {SKILLS[2].skills.map((item, index) => (
+//               <div key={index} className="skill-item">
+//                 <img src={item.icon} alt={item.skill} className="skill-icon" />
+//                 <div className="skill-name">{item.skill}</div>
+//               </div>
+//             ))}
+//           </Cards>
+//         </div>
+//       </div> */}
+//     </section>
+//   );
+// }
+
+// export default Skills;

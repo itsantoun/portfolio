@@ -1,14 +1,252 @@
-.project-container{
-    margin: 4rem 0;
+/* More specific header selector */
+.project-container .header {
+    color: black;
+    text-align: left;
+    width: 100%;
+    margin-left: 30%;
+    margin-top: -2%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    animation: fadeIn 1s ease-in-out; /* Only the text fades in */
+}
+
+/* Emoji styling */
+.emoji {
+    margin-left: 10px;
+    font-size: 30px;
+    animation: bounce 2s ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    animation-delay: 1s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Fade-in animation for the entire header */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Projects Section */
+.project-container {
+    padding: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 20px;
     position: relative;
-
-    
+    background-color: white;
 }
 
-.project-container h5{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
-    margin-left: 2%;
+/* Project Slider */
+.project-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 550px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    width: 73%;
+    scroll-behavior: smooth;
+    margin: 0 auto;
 }
 
+/* Responsive Project Slider */
+@media (max-width: 768px) {
+    .project-slider {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+}
+
+/* Hide scrollbar */
+.project-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Project Item */
+.project-item {
+    background-color: #ECECEC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    min-height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    overflow: hidden;
+    filter: grayscale(100%);
+    animation: fadeIn 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+/* Animation Delay for Project Items */
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.3s; }
+.project-item:nth-child(3) { animation-delay: 0.5s; }
+.project-item:nth-child(4) { animation-delay: 0.5s; }
+.project-item:nth-child(5) { animation-delay: 0.5s; }
+.project-item:nth-child(6) { animation-delay: 0.5s; }
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%);
+}
+
+/* On hover, change color of description text and Font Awesome icon to black */
+.project-item:hover .project-details p, /* Description text */
+.project-item:hover .responsibility-item, /* Responsibility text */
+.project-item:hover .responsibility-item i { /* Font Awesome icon */
+    color: black;
+}
+
+/* Project Icon (Image settings) */
+.project-icon {
+    width: 100%;
+    height: 40%;
+    margin-bottom: 15px;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+/* Project Details */
+.project-details {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%; /* Ensure it takes up the full height of the card */
+    flex-grow: 1; /* Allow it to grow and fill the remaining space */
+    overflow: hidden;
+}
+
+.project-details p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+    overflow-wrap: break-word;
+}
+
+/* Link Button Styling */
+.project-details a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Push the link to the bottom */
+    padding: 8px 16px;
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Project Item hover effect */
+.project-item.hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%);
+}
+
+/* Hover effect for project item */
+.project-item.hover .project-details li {
+    color: black;
+}
+
+.project-item.hover .project-details li i {
+    color: black;
+}
+
+/* Scroll Buttons */
+.scroll-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.scroll-btn {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.scroll-btn.left {
+    margin-right: auto;
+}
+
+.scroll-btn.right {
+    margin-left: auto;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .project-container .header {
+        text-align: left;
+        margin-left: 0;
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .project-slider {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .project-item {
+        width: 80%;
+        min-width: 250px;
+        margin: 0 10px;
+    }
+
+    .project-details p {
+        font-size: 14px;
+    }
+
+    .project-details ul {
+        padding-left: 15px;
+    }
+
+    .scroll-btn {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+}

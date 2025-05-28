@@ -1,11 +1,309 @@
-.experience-container{
-    margin: 4rem 0;
+/* Header styling */
+.work-experience-container .header {
+    color: black;
+    text-align: left;
+    width: 100%;
+    margin-left: 30%;
+    margin-top: -2%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    animation: fadeIn 1s ease-in-out; /* Only the text fades in */
+     font-family: 'Courier New', Courier, monospace;
+}
+
+/* Emoji styling */
+.emoji {
+    margin-left: 10px; /* Add space between the text and emoji */
+    font-size: 30px; /* Adjust the size of the emoji */
+    animation: bounce 2s ease-in-out; /* Apply bounce animation for the emoji */
+    animation-fill-mode: forwards; /* Ensure it stays in its final position after animation */
+    opacity: 1; /* Make the emoji visible */
+    animation-delay: 1s; /* Delay the bounce until after the fade-in of the text */
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move the emoji up */
+    }
+}
+
+/* Fade-in animation for the entire header */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Work Experience Section */
+.work-experience-container {
+    padding: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 20px;
+    position: relative;
+    background-color: white;
+    font-family: 'Roboto', sans-serif; /* Improved font choice */
+}
+
+/* Scrollable area */
+.work-experience-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    width: 73%;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    margin: 0 auto;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.work-experience-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Work Experience item */
+.work-experience-item {
+    background-color: #FFFFFF; /* More neutral background */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left for a cleaner look */
+    justify-content: flex-start;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    min-height: 450px; /* Slightly increased height for better content spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    overflow: hidden;
+    border: 1px solid #E0E0E0; /* Subtle border to define the item */
+    background-color: #F9F9F9;
     position: relative;
 }
 
-.experience-container h5{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
-    margin-left: 2%;
+.work-experience-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0); /* Soft background gradient */
+    z-index: -1;
 }
+
+/* Hover effect to show colors */
+.work-experience-item:hover {
+    transform: translateY(-8px); /* Slightly stronger hover effect */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%);
+}
+
+/* Work Experience details */
+.work-experience-details {
+    text-align: left;
+    width: 100%;
+    white-space: normal;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left-align text for better readability */
+    justify-content: flex-start;
+    height: 100%;
+    font-size: 14px;
+}
+
+.work-experience-details p {
+    margin: 10px 0;
+    font-size: 16px; /* Slightly larger text for company name and role */
+    color: #333;
+    font-weight: 500;
+}
+
+.work-experience-details p strong {
+    font-weight: bold; /* Make labels bold for emphasis */
+}
+
+.work-experience-details p span {
+    font-weight: 400; /* Non-bold text */
+}
+
+.work-experience-details ul {
+    list-style-type: none; /* Removes default bullet points */
+    padding-left: 0;
+    margin: 10px 0;
+    color: gray;
+}
+
+.work-experience-details li {
+    position: relative;
+    padding-left: 30px; /* Space for the icon at the beginning */
+    margin-bottom: 8px;
+    font-size: 14px; /* Adjust as needed */
+    line-height: 1.6; /* Ensures multi-line text spacing */
+}
+
+/* Default monochrome icon */
+.work-experience-details li i {
+    position: absolute;
+    left: 0; /* Ensures icon is at the very beginning */
+    top: 0; /* Aligns the icon at the top of the list item */
+    color: #B0B0B0; /* Monochrome gray color by default */
+    font-size: 18px; /* Adjust size of the icon */
+    line-height: 1; /* Ensures the icon stays aligned at the top */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect: change both icon and text color */
+.work-experience-item:hover .work-experience-details li {
+    color: black; /* Change text color on hover */
+}
+
+.work-experience-item:hover .work-experience-details li i {
+    color: black; /* Change icon color on hover */
+}
+
+.work-experience-details a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Brighter button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.work-experience-details a:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Scroll buttons */
+.scroll-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.scroll-btn {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.scroll-btn.left {
+    margin-right: auto;
+}
+
+.scroll-btn.right {
+    margin-left: auto;
+}
+
+
+  .work-experience-item {
+    animation: fadeIn 0.8s ease-out;
+    animation-fill-mode: both;
+  }
+  
+  /* Delay animations for each item */
+  .work-experience-item:nth-child(1) { animation-delay: 0.1s; }
+  .work-experience-item:nth-child(2) { animation-delay: 0.3s; }
+  .work-experience-item:nth-child(3) { animation-delay: 0.5s; }
+  .work-experience-item:nth-child(4) { animation-delay: 0.5s; }
+  .work-experience-item:nth-child(5) { animation-delay: 0.5s; }
+  .work-experience-item:nth-child(6) { animation-delay: 0.5s; }
+  .work-experience-item:nth-child(3) { animation-delay: 0.5s; }
+  /* Add more delays as needed */
+ 
+
+  /* Work Experience Item hover effect */
+.work-experience-item.hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%);
+}
+
+/* Hover effect: change both icon and text color */
+.work-experience-item.hover .work-experience-details li {
+    color: black;
+}
+
+.work-experience-item.hover .work-experience-details li i {
+    color: black;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    
+    .work-experience-slider {
+        width: 90%;
+    }
+
+    .work-experience-container .header {
+        text-align: left;  
+        margin-left: 0; 
+        margin-top: 0; 
+        font-size: 24px; 
+    }
+
+    .work-experience-item {
+        width: 280px;
+        min-height: 400px;
+        padding: 20px;
+    }
+
+    .work-experience-details p {
+        font-size: 14px;
+    }
+
+    .work-experience-details ul {
+        padding-left: 15px;
+    }
+
+    .scroll-btn {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+}
+

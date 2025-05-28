@@ -1,102 +1,94 @@
+
 export const SKILLS = [
     {
         title: "Frontend",
-        icon: require("../Assets/frontend2.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/6/6a/HTML5_logo_and_wordmark.svg", // Frontend category icon
         skills: [
-            { skill: "HTML5", },
-            { skill: "CSS" },
-            { skill: "JavaScript" },
-            { skill: "React.js" },
-            { skill: "Angular" },
-            { skill: "Svelte" },
+            { skill: "HTML5",icon:require("../Assets/icons/HTML5.png") }, // HTML5 logo
+            { skill: "CSS", icon:require("../Assets/icons/CSS3.png") }, // CSS logo
+            { skill: "JavaScript", icon:require("../Assets/icons/JavaScript.png")}, // JS logo
+            { skill: "React.js", icon:require("../Assets/icons/React.png") }, // React logo
+            { skill: "Angular", icon:require("../Assets/icons/Angular.png") }, // Angular logo
+            { skill: "Svelte", icon:require("../Assets/icons/Svelte.png") }, // Svelte logo
         ],
     },
     {
         title: "Backend",
-        icon: require("../Assets/backend.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Node.js_logo_2015.svg", // Backend category icon
         skills: [
-            { skill: "Node.js" },
-            { skill: "Oracle" },
-            { skill: "SQL Server" },
-            { skill: "SQL Express" },
-            { skill: "MongoDB" },
-            { skill: "FireBase" },
-
+            { skill: "Node.js", icon:require("../Assets/icons/nodejs.png")  }, // Node.js logo
+            { skill: "Oracle", icon:require("../Assets/icons/Oracle.png") }, // Oracle logo
+            { skill: "SQL Server", icon:require("../Assets/icons/sqlserver.png")  }, // SQL Server logo
+            { skill: "SQL Express",icon:require("../Assets/icons/Express.png")  }, // SQL Express logo
+            { skill: "MongoDB", icon:require("../Assets/icons/MongoDB.png")  }, // MongoDB logo
+            { skill: "Firebase", icon:require("../Assets/icons/Firebase.png")  }, // Firebase logo
         ],
     },
     {
         title: "Tools",
-        icon: require("../Assets/tools.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Visual_Studio_Code_1.35_icon.svg", // Tools category icon
         skills: [
-            { skill: "Visual Studio Code" },
-            { skill: "Anaconda (Jupyter Notebook, spider)" },
-            { skill: "Google Collab" },
-            { skill: "Eclipse IDE" },
-            { skill: "Docker" },
-            { skill: "Postman" },
+            { skill: "Visual Studio Code", icon:require("../Assets/icons/vscode.png") },
+            { skill: "Xcode", icon:require("../Assets/icons/Xcode.png") },
+            { skill: "Anaconda (Jupyter Notebook, Spider)", icon:require("../Assets/icons/anaconda.png") }, // Anaconda logo
+            { skill: "Google Colab", icon:require("../Assets/collab.png") }, // Google Colab logo
+            { skill: "Eclipse IDE",  icon:require("../Assets/icons/eclipse.png")  }, // Eclipse logo
+            { skill: "Docker",  icon:require("../Assets/icons/Docker.png")  }, // Docker logo
+            { skill: "Postman", icon:require("../Assets/icons/Postman.png")  }, // Postman logo
         ],
     },
     {
         title: "Programming Languages",
-        icon: require("../Assets/languages.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/6/63/Java_icon.svg", // Programming Languages category icon
         skills: [
-            { skill: "Java" },
-            { skill: "Python" },
-            { skill: "Swift" },
-            { skill: "React" },
-            { skill: "HTML" },
-            { skill: "CSS" },
-            { skill: "JavaScript" },
-            { skill: "C" },
-            { skill: "PHP" }
+            { skill: "Java",icon:require("../Assets/icons/Java.png")  }, // Java logo
+            { skill: "Python", icon:require("../Assets/icons/Python.png")  }, // Python logo
+            { skill: "Swift", icon:require("../Assets/icons/Swift.png")  }, // Swift logo
+            { skill: "React",icon:require("../Assets/icons/React.png")  }, // React logo
+            { skill: "C", icon:require("../Assets/icons/C.png")  }, // C logo
+            { skill: "PHP", icon:require("../Assets/icons/PHP.png")  }, // PHP logo
         ],
     },
-
     {
         title: "Operating Systems",
-        icon: require("../Assets/os.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Windows_logo_-_2012.svg", // Operating Systems category icon
         skills: [
-            { skill: "MS Windows" },
-            { skill: "MacOS" },
-            { skill: "Linux (Ubuntu,Kali Linux)" }
+            { skill: "MacOS", icon:require("../Assets/icons/Apple.png")}, // MacOS logo
+            { skill: "MS Windows", icon:require("../Assets/icons/Windows 11.png") }, // Windows logo
+            { skill: "Linux (Ubuntu, Kali Linux)", icon:require("../Assets/icons/Linux.png")}, // Linux logo
         ],
     },
     {
         title: "Design Tools",
-        icon: require("../Assets/design.png"),
+        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_XD_logo_2019.svg", // Design Tools category icon
         skills: [
-            { skill: "Adobe XD" },
-            { skill: "Adobe Photoshop" },
-            { skill: "Figma" }
+            { skill: "Adobe Photoshop", icon:require("../Assets/icons/photoshop.png") }, // Adobe XD logo
+            { skill: "Adobe XD", icon:require("../Assets/icons/xd.png")  }, // Photoshop logo
+            { skill: "Figma", icon:require("../Assets/icons/Figma.png")  }, // Figma logo
         ],
     },
-    // {
-    //     title: "Cloud ",
-    //     icon: require("../Assets/cloud.png"),
-    //     skills: [
-    //         { skill: "Java" },
-    //         { skill: "Python" },
-    //         { skill: "Swift" },
-    //         { skill: "React" },
-    //         { skill: "HTML" },
-    //         { skill: "CSS" },
-    //         { skill: "JavaScript" },
-    //         { skill: "C" },
-    //         { skill: "PHP" }
-    //     ],
-    // },
+
+    {
+        title: "Cloud",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_XD_logo_2019.svg", // Design Tools category icon
+        skills: [
+            { skill: "Amazon Web Services", icon:require("../Assets/icons/AWS.png") }, // Adobe XD logo
+            { skill: "Google Cloud", icon:require("../Assets/icons/Google Cloud.png")  }, // Photoshop logo
+        ],
+    },
 ];
 
 
 export const WORK_EXPERIENCE = [
 
     {
-        title: "Part-Time – IT Specialist:",
+        title: "Full-Time – IT Specialist:",
         company: "SBI Consultants, Inc.",
         date: "Summer 2022-Present",
         responsibilities: [
-            "Managed and maintained the organization’s IT infrastructure including server connections, network systems, and end-user devices.",
-            "Provided technical support to employees troubleshooting hardware and software issues.",
+           "Managed IT infrastructure and provided technical support for hardware, software, and network systems",
+           "Built internal tools for PDF-to-Excel data extraction using .Net, and maintained the company website using WordPress"
+
         ],
     },
     {
@@ -136,6 +128,7 @@ export const WORK_EXPERIENCE = [
 
     {
         title: "User testing – Event Organizer website:",
+         company: "Pronotion",
         date: "Fall 2023",
         responsibilities: [
             "Testing the functionalities of an upgraded website, such as account creation, transaction operations, services, and the design of the website.",
