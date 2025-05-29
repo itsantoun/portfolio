@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useTypewriter } from './Typewriter'; // adjust the path as needed
 import './Hero.css';
 import me2 from '../../Assets/me2.png';
+import me3 from '../../Assets/me/me3.jpeg';
 
 const emojis = ['🎹', '🖥️', '🎶', '🎧', '💻', '🎼', '🧑‍💻', '⌨️'];
 
@@ -71,7 +72,7 @@ function Hero() {
       </div>
 
       <div className='hero-img'>
-        <img src={me2} alt='Antoun Atallah' />
+        <img src={me3} alt='Antoun Atallah' />
       </div>
     </section>
   );
