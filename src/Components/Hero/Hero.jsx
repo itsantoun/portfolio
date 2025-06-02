@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTypewriter } from './Typewriter'; // adjust the path as needed
 import './Hero.css';
-import me2 from '../../Assets/me2.png';
+// import me2 from '../../Assets/me2.png';
 import me3 from '../../Assets/me/me3.jpeg';
 
 const emojis = ['🎹', '🖥️', '🎶', '🎧', '💻', '🎼', '🧑‍💻', '⌨️'];
@@ -10,9 +10,10 @@ function Hero() {
   const heroContentRef = useRef(null);
 
   const fullText = [
-    "I'm Antoun Atallah and welcome to my portfolio!",
-    "A 23-year-old Computer Science Graduate with a keen interest in web development, mobile, and cloud computing.",
-    "In addition to my technical pursuits, I am also majoring in piano and minoring in music composition."
+ "I’m a Full-Stack Developer with a degree in Computer Science and a passion for building smart, efficient digital solutions. I enjoy creating seamless web and mobile experiences using modern tools and frameworks.",
+"I’m also a graduate pianist with a minor in music composition.",
+"Both of my skills — music and code — come from keyboards. One sings, one builds.",
+"Thanks for visiting!",
   ];
 
   const typedText = useTypewriter(fullText, 30, 1000);
@@ -66,7 +67,7 @@ function Hero() {
     <section className='hero-container'>
       <div className='hero-content' ref={heroContentRef}>
         <h2>
-          Hi Everyone! <span className="wave-emoji">👋</span>
+          Hi, I’m Antoun! <span className="wave-emoji">👋</span>
         </h2>
         <p style={{ whiteSpace: 'pre-line' }}>{typedText}</p>
       </div>
