@@ -158,7 +158,7 @@ export const MY_PROJECTS = [
         ],
     },
     {
-        icon: require("../Assets/tourinLeb.png"),
+        icon: require("../Assets/tourinleb.png"),
         title: "Tour in Lebanon",
         date: "Fall 2022",
         url: "https://github.com/itsantoun/Tour-in-Lebanon.git",
@@ -166,25 +166,5 @@ export const MY_PROJECTS = [
             "A basic website using HTML/CSS/JS showing beautiful and historical places of Lebanon"
         ],
     },
-
-    {
-        icon: require("../Assets/StudentServiceHelper.png"),
-        title: "Student Service Helper",
-        date: "Fall 2022",
-        url: "https://github.com/itsantoun/Student-Services-Helper.git",
-        responsibilities: [
-            "A Web development project facility for LAU students to be able to reserve ."
-        ],
-    },
-
-    {
-        icon: require("../Assets/RoomBookingWebsite.png"),
-        title: "Room Booking Website",
-        date: "Summer 2023",
-        url: "https://github.com/itsantoun/roomBooking-FrontEnd",
-        responsibilities: [
-            "The room booking website helps employees at companies book rooms online."
-        ],
-    }
 
 ];
