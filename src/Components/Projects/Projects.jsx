@@ -57,7 +57,8 @@ const Projects = () => {
       </h3>
 
       <div className="project-slider" ref={sliderRef}>
-        {[...MY_PROJECTS, ...MY_PROJECTS].map((project, index) => (
+        {/* {[...MY_PROJECTS, ...MY_PROJECTS].map((project, index) => ( */}
+        {MY_PROJECTS.map((project, index) => (
           <div key={index} className="project-item">
             <img src={project.icon} alt={project.title} className="project-icon" />
             <div className="project-details">
