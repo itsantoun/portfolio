@@ -10,8 +10,6 @@
   border-radius: 23px;
   height: 550px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1.5s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
 
 /* Floating emoji */
@@ -20,7 +18,6 @@
   font-size: 2rem;
   opacity: 0.2; /* Lowered opacity */
   pointer-events: none;
-  animation: floatAnimation 3s infinite alternate ease-in-out;
   z-index: 0; /* Ensure emojis are behind text */
 }
 
@@ -77,15 +74,7 @@
   transform: translate(50%, 50%); /* Center it perfectly */
 }
 
-/* Floating animation */
-@keyframes floatAnimation {
-  0% {
-      transform: translateY(0);
-  }
-  100% {
-      transform: translateY(-20px);
-  }
-}
+
 /* Hover effect */
 .hero-container:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
@@ -118,20 +107,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: slideInRight 1s ease-in-out;
 }
 
 .hero-img img {
-  max-width: 70%;
+ width: 370px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Hover effect for the image */
-.hero-img:hover {
-  transform: scale(1.02);
 }
 
 /* Wave emoji animation */
@@ -226,34 +208,6 @@
   }
 
   .hero-img img {
-      max-width: 100%;
-  }
-}
-
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInLeft {
-  from {
-      transform: translateX(-50px);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-      transform: translateX(50px);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
+      max-width: 70%;
   }
 }
