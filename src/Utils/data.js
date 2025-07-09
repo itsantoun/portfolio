@@ -76,6 +76,14 @@ export const SKILLS = [
             { skill: "Google Cloud", icon:require("../Assets/icons/Google Cloud.png")  }, // Photoshop logo
         ],
     },
+
+    {
+        title: "Business Intelligence Tools",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_XD_logo_2019.svg", // Design Tools category icon
+        skills: [
+            { skill: "Power BI", icon:require("../Assets/icons/powebi.png") }, // Adobe XD logo
+        ],
+    },
 ];
 
 

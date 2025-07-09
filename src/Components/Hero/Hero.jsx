@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useTypewriter } from './Typewriter'; // adjust the path as needed
 import './Hero.css';
 // import me2 from '../../Assets/me2.png';
-import me3 from '../../Assets/me/me3.jpeg';
+import me3 from '../../Assets/me/me4.jpeg';
 
 const emojis = ['🎹', '🖥️', '🎶', '🎧', '💻', '🎼', '🧑‍💻', '⌨️'];
 
