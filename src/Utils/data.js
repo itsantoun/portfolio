@@ -98,11 +98,22 @@ export const WORK_EXPERIENCE = [
            "Built internal tools for PDF-to-Excel data extraction using .Net, and maintained the company website using WordPress"
 
         ],
+          tools: ["WordPress, .NET ,PHP, CSS, Networking"],
+    },
+     {
+        title: "Full Stack Software Developer & IT Specialist ",
+        company: "Elsheikh.INC ",
+        date: "Summer 2024 – Present",
+        responsibilities: [
+            "IT Specialist: Manage server, networking and provide IT support",
+            "Software Developer: Buid and design a software for managing oil purchases, keep track of items, and generate monthly reports",
+        ],
+        tools: ["VS Code, GitHub, Git, ReactJS, CSS, Firebase"]
     },
     {
         title: "University Student Employment- Stage Assistant:",
         company: "Lebanese American Univerity (Beirut-Lebanon)",
-        date: "Fall 2022 – Present",
+        date: "Fall 2022 – Fall 2024",
         responsibilities: [
             "Assistant director.",
             "Operating the lighting and sound console, installing lanterns on the catwalk, operating the sound mixer, and video projector, and installing and setup microphones.",
@@ -117,8 +128,8 @@ export const WORK_EXPERIENCE = [
         responsibilities: [
             "Translated Figma designs into fully responsive and interactive web applications, ensuring seamless user experience and design fidelity across all platforms.",
             "Developed and integrated APIs from various applications to enhance functionality and ensure smooth data exchange between systems.",
-            "Tools used: VS Code, Docker, GitHub, Git, Svelte, Svelte Kit, Tailwind CSS."
         ],
+         tools: ["VS Code, Docker, GitHub, Git, Svelte, Svelte Kit, Tailwind CSS."]
     },
 
 
@@ -130,8 +141,8 @@ export const WORK_EXPERIENCE = [
             "Website for employees to reserve a room for their upcoming meetings.",
             "Backend: SQL Server",
             "API: Create an API responsible for adding employees, reserving rooms, and storing information on the SQL Database server.",
-            "Tools used: Visual Studio, VS Code, .NET Core, React JS, CSS, Git."
         ],
+         tools:["Visual Studio, VS Code, .NET Core, React JS, CSS, Git"]
     },
 
     {
@@ -140,8 +151,8 @@ export const WORK_EXPERIENCE = [
         date: "Fall 2023",
         responsibilities: [
             "Testing the functionalities of an upgraded website, such as account creation, transaction operations, services, and the design of the website.",
-            "Tools Used: Google Chrome, MS Word."
         ],
+         tools:["Google Chrome, MS Word."]
     },
 ];
 
@@ -155,6 +166,7 @@ export const MY_PROJECTS = [
         responsibilities: [
             "A social media platform that connects musicians together with the ability to find jobs, expand their network and show their work."
         ],
+        tools:["ReactJS, AWS, NodeJS, CSS, Github, Amazon S3, Amazon RDS, VS Code, POSTMAN."]
     },
     {
         icon: require("../Assets/RoomBookingWebsite.png"),
@@ -164,6 +176,7 @@ export const MY_PROJECTS = [
         responsibilities: [
             "The room booking website helps employees at companies book rooms online."
         ],
+        tools:["ReactJS, SQL Server, .NET Core, CSS, GitHub, VS Code, Visual Studio."]
     },
     {
         icon: require("../Assets/tourinleb.png"),
@@ -173,6 +186,7 @@ export const MY_PROJECTS = [
         responsibilities: [
             "A basic website using HTML/CSS/JS showing beautiful and historical places of Lebanon"
         ],
+        tools:["HTML, CSS, Javascript, GitHub, VS Code."]
     },
 
 ];

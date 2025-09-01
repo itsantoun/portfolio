@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-
 import Navbar from './Components/Navbar/Navbar/Navbar';
 import Hero from './Components/Hero/Hero';
 import TechSkills from './Components/TechSkills/Skills';
 import WorkExperience from './Components/WorkExperience/WorkExperience';
 import Footer from './Components/Footer/Footer';
 import Projects from './Components/Projects/Projects';
-
 import './App.css';
 
 function App() {
@@ -42,24 +40,20 @@ function App() {
   }, []);
 
   return (
-    <div data-scroll-container ref={scrollRef} className="container">
+    <div 
+      ref={scrollRef} 
+      data-scroll-container
+      style={{
+        width: '100%',
+        overflowX: 'hidden'
+      }}
+    >
       <Navbar />
-      <Hero
-        id="homePage"
-        className="scroll-animate fade-in"
-      />
-      <TechSkills
-        className="scroll-animate slide-in-left"
-      />
-      <Projects
-        id="Projects"
-        className="scroll-animate slide-in-right"
-      />
-      <WorkExperience
-        id="WorkExperience"
-        className="scroll-animate fade-in"
-      />
-      <Footer id="footer" />
+      <Hero />
+      <TechSkills />
+      <WorkExperience />
+      <Projects />
+      <Footer />
     </div>
   );
 }

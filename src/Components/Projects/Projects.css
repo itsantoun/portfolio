@@ -1,252 +1,916 @@
-/* More specific header selector */
-.project-container .header {
-    color: black;
-    text-align: left;
-    width: 100%;
-    margin-left: 30%;
-    margin-top: -2%;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-   font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    animation: fadeIn 1s ease-in-out; /* Only the text fades in */
-}
-
-/* Emoji styling */
-.emoji {
-    margin-left: 10px;
-    font-size: 30px;
-    animation: bounce 2s ease-in-out;
-    animation-fill-mode: forwards;
-    opacity: 1;
-    animation-delay: 1s;
-}
-
-/* Bounce animation */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Fade-in animation for the entire header */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Projects Section */
+/* Projects Section - Enhanced Responsive Design with Fixed Image Overlap */
 .project-container {
-    padding: 2vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    margin-top: 20px;
-    position: relative;
-    background-color: white;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* Project Slider */
-.project-slider {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    height: 550px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 20px;
-    width: 73%;
-    scroll-behavior: smooth;
-    margin: 0 auto;
+/* Hide floating elements on mobile by default */
+.floating-elements {
+  display: none;
 }
 
-/* Responsive Project Slider */
-@media (max-width: 768px) {
-    .project-slider {
-        width: 100%;
-        flex-wrap: nowrap;
-    }
+.float-element {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0.2;
+  animation: floatAround 10s ease-in-out infinite;
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
-/* Hide scrollbar */
-.project-slider::-webkit-scrollbar {
-    display: none;
+/* Header Section - Mobile Optimized */
+.projects-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #ddd;
+  position: relative;
+  z-index: 2;
 }
 
-/* Project Item */
-.project-item {
-    background-color: #ECECEC;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    min-height: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    overflow: hidden;
-    filter: grayscale(100%);
-    animation: fadeIn 0.8s ease-out;
-    animation-fill-mode: both;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 1.2;
 }
 
-/* Animation Delay for Project Items */
-.project-item:nth-child(1) { animation-delay: 0.1s; }
-.project-item:nth-child(2) { animation-delay: 0.3s; }
-.project-item:nth-child(3) { animation-delay: 0.5s; }
-.project-item:nth-child(4) { animation-delay: 0.5s; }
-.project-item:nth-child(5) { animation-delay: 0.5s; }
-.project-item:nth-child(6) { animation-delay: 0.5s; }
-
-.project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    filter: grayscale(0%);
+.header-icon {
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 1.75rem;
 }
 
-/* On hover, change color of description text and Font Awesome icon to black */
-.project-item:hover .project-details p, /* Description text */
-.project-item:hover .responsibility-item, /* Responsibility text */
-.project-item:hover .responsibility-item i { /* Font Awesome icon */
-    color: black;
+/* Navigation - Right aligned on mobile */
+.navigation-arrows {
+  display: flex;
+  gap: 12px;
+  align-self: flex-end;
+  width: auto;
 }
 
-/* Project Icon (Image settings) */
-.project-icon {
-    width: 100%;
-    height: 40%;
-    margin-bottom: 15px;
-    border-radius: 10%;
-    object-fit: cover;
+.arrow {
+  background-color: white;
+  border: 2px solid #333;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #333;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  border-radius: 4px;
 }
 
-/* Project Details */
-.project-details {
-    text-align: left;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100%; /* Ensure it takes up the full height of the card */
-    flex-grow: 1; /* Allow it to grow and fill the remaining space */
-    overflow: hidden;
+.arrow:active {
+  transform: scale(0.95);
+  background-color: #333;
+  color: white;
 }
 
-.project-details p {
-    margin: 10px 0;
+/* Projects Gallery */
+.projects-gallery {
+  position: relative;
+  z-index: 2;
+  margin: 24px 0;
+  width: 100%;
+}
+
+.project-slider-creative {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 16px 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+  width: 100%;
+}
+
+.project-slider-creative::-webkit-scrollbar {
+  height: 6px;
+}
+
+.project-slider-creative::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.project-slider-creative::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.project-slider-creative::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Project Cards - Responsive Width */
+.project-card {
+  flex: 0 0 auto;
+  background-color: white;
+  border: 2px solid #ddd;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:active {
+  border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Pattern */
+.card-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    45deg,
+    #333,
+    #333 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+/* NEW: Horizontal header layout with icon and title side by side */
+.project-header-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* Icon - Adjusted for new layout */
+.project-icon-float {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.project-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.project-card:active .project-icon-image {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+
+/* Card Content */
+.card-content {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Title section adjustments */
+.title-section {
+  flex: 1;
+  min-width: 0; /* Allow text to wrap */
+}
+
+.project-title-creative {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+/* Date section - full width below the header */
+.date-section {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.date-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  align-self: flex-start;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+/* Features Section */
+.features-section {
+  margin: 16px 0;
+}
+
+.features-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.star-icon {
+  color: #333;
+  font-size: 12px;
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-pill {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #666;
+  font-family: 'Courier New', Courier, monospace;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+  word-wrap: break-word;
+  border-radius: 4px;
+}
+
+.feature-pill:active {
+  border-color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Tools Section */
+.tools-section {
+  margin: 16px 0;
+}
+
+.tools-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tools-icon {
+  color: #333;
+  font-size: 12px;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  row-gap: 6px;
+}
+
+.tool-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  font-size: 10px;
+  color: #666;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+  border-radius: 3px;
+}
+
+.tool-item:active {
+  border-color: #333;
+  color: #333;
+}
+
+/* Card Footer */
+.card-footer {
+  margin-top: 20px;
+}
+
+.launch-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: white;
+  border: 2px solid #333;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  touch-action: manipulation;
+  border-radius: 4px;
+}
+
+.launch-button:active {
+  background-color: #333;
+  color: white;
+  transform: scale(0.98);
+}
+
+.button-text {
+  z-index: 2;
+  position: relative;
+}
+
+.button-icon {
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s ease;
+  font-size: 13px;
+}
+
+.launch-button:active .button-icon {
+  transform: translateX(2px);
+}
+
+.button-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+/* Interactive Elements */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.03);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none !important;
+}
+
+.project-card:active .card-overlay {
+  opacity: 1;
+}
+
+.corner-accent {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.top-left {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.bottom-right {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
+.project-card:active .corner-accent {
+  border-color: #333;
+}
+
+/* Project Counter */
+.project-counter {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.counter-dots {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  border-radius: 50%;
+}
+
+.dot:active,
+.dot.active {
+  border-color: #333;
+  background-color: #333;
+}
+
+/* Animations */
+@keyframes floatAround {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+/* ====== RESPONSIVE BREAKPOINTS ====== */
+
+/* EXTRA SMALL DEVICES (phones, 320px and up) */
+@media (min-width: 320px) {
+  .project-container {
+    padding: 30px 12px;
+  }
+  
+  .project-card {
+    width: calc(100vw - 40px) !important;
+    max-width: 300px;
+  }
+  
+  .header {
+    font-size: 1.5rem;
+  }
+  
+  .navigation-arrows {
+    align-self: center;
+  }
+  
+  .project-icon-float {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .project-title-creative {
     font-size: 14px;
-    color: #333;
-    overflow-wrap: break-word;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
 }
 
-/* Link Button Styling */
-.project-details a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto; /* Push the link to the bottom */
-    padding: 8px 16px;
-    background-color: gray;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+/* Small Mobile (375px+) */
+@media (min-width: 375px) {
+  .project-card {
+    width: calc(100vw - 60px) !important;
+    max-width: 320px;
+  }
+  
+  .project-icon-float {
+    width: 55px;
+    height: 55px;
+  }
 }
 
-/* Project Item hover effect */
-.project-item.hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    filter: grayscale(0%);
-}
-
-/* Hover effect for project item */
-.project-item.hover .project-details li {
-    color: black;
-}
-
-.project-item.hover .project-details li i {
-    color: black;
-}
-
-/* Scroll Buttons */
-.scroll-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
+/* Large Mobile & Small Tablet (576px+) */
+@media (min-width: 576px) {
+  .project-container {
+    padding: 50px 24px;
+  }
+  
+  .projects-header {
+    flex-direction: row;
     justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 10;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .navigation-arrows {
+    align-self: auto;
+  }
+  
+  .project-card {
+    width: 320px !important;
+    min-height: 300px;
+  }
+  
+  .project-icon-float {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .project-title-creative {
+    font-size: 16px;
+  }
 }
 
-.scroll-btn {
-    background-color: rgba(0, 0, 0, 0.7);
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .project-container {
+    width: 90%;
+    padding: 60px 30px;
+  }
+  
+  .floating-elements {
+    display: block;
+  }
+  
+  .float-1 {
+    top: 15%;
+    left: 8%;
+    animation-delay: 0s;
+  }
+  
+  .float-2 {
+    top: 25%;
+    right: 12%;
+    animation-delay: -2s;
+  }
+  
+  .float-3 {
+    bottom: 30%;
+    left: 15%;
+    animation-delay: -4s;
+  }
+  
+  .float-4 {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -6s;
+  }
+  
+  .project-container:hover .float-element {
+    opacity: 0.4;
+  }
+  
+  .header {
+    font-size: 2rem;
+  }
+  
+  .header-icon {
+    font-size: 2rem;
+  }
+  
+  .project-card {
+    width: 350px !important;
+    min-height: 320px;
+  }
+  
+  .project-icon-float {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .card-content {
+    padding: 25px;
+  }
+  
+  .project-title-creative {
+    font-size: 18px;
+  }
+}
+
+/* Desktop (992px+) */
+@media (min-width: 992px) {
+  .project-container {
+    width: 80%;
+    padding: 70px 30px;
+  }
+  
+  .header {
+    font-size: 2.2rem;
+  }
+  
+  .header-icon {
+    font-size: 2.2rem;
+  }
+  
+  .project-slider-creative {
+    gap: 24px;
+  }
+  
+  .project-card {
+    width: 360px !important;
+    min-height: 340px;
+  }
+  
+  .project-icon-float {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .card-content {
+    padding: 30px;
+  }
+  
+  .project-title-creative {
+    font-size: 20px;
+  }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .project-container {
+    width: 70%;
+    padding: 80px 30px;
+  }
+  
+  .header {
+    font-size: 2.5rem;
+  }
+  
+  .header-icon {
+    font-size: 2.5rem;
+  }
+  
+  .project-slider-creative {
+    gap: 30px;
+  }
+  
+  .project-card {
+    width: 380px !important;
+    min-height: 360px;
+  }
+  
+  .project-icon-float {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .card-content {
+    padding: 35px;
+  }
+  
+  .project-title-creative {
+    font-size: 22px;
+  }
+}
+
+/* Extra Large Desktop (1600px+) */
+@media (min-width: 1600px) {
+  .project-container {
+    width: 65%;
+    padding: 100px 30px;
+  }
+  
+  .project-card {
+    width: 400px !important;
+    min-height: 380px;
+  }
+  
+  .project-slider-creative {
+    gap: 32px;
+  }
+  
+  .project-icon-float {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card-content {
+    padding: 40px;
+  }
+}
+
+/* Add hover effects only for devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .arrow:hover {
+    background-color: #333;
     color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transform: translateY(-2px);
+  }
+  
+  .project-card:hover {
+    border-color: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .project-card:hover .project-icon-image {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+  
+  .project-card:hover .icon-glow {
+    opacity: 1;
+  }
+  
+  .feature-pill:hover {
+    border-color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .tool-item:hover {
+    border-color: #333;
+    color: #333;
+  }
+  
+  .launch-button:hover {
+    background-color: #333;
+    color: white;
+    transform: translateY(-1px);
+  }
+  
+  .launch-button:hover .button-icon {
+    transform: translateX(2px);
+  }
+  
+  .launch-button:hover .button-shine {
+    left: 100%;
+  }
+  
+  .project-card:hover .card-overlay {
+    opacity: 1;
+  }
+  
+  .project-card:hover .corner-accent {
+    border-color: #333;
+  }
+  
+  .dot:hover {
+    border-color: #333;
+    background-color: #333;
+  }
+  
+  .header:hover .header-icon {
+    transform: rotate(10deg);
+  }
 }
 
-.scroll-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .project-container {
+    padding: 20px 16px;
+  }
+  
+  .projects-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+  
+  .floating-elements {
+    display: none;
+  }
+  
+  .project-card {
+    height: auto;
+  }
+  
+  .project-icon-float {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .card-content {
+    padding: 15px !important;
+  }
 }
 
-.scroll-btn.left {
-    margin-right: auto;
+/* FIXED: Better mobile breakpoint for very small screens */
+@media (max-width: 575px) {
+  .project-icon-float {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .card-content {
+    padding: 16px !important;
+  }
+  
+  .project-header-horizontal {
+    gap: 12px !important;
+  }
 }
 
-.scroll-btn.right {
-    margin-left: auto;
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .float-element,
+  .project-card,
+  .arrow,
+  .launch-button,
+  .button-icon,
+  .card-overlay,
+  .corner-accent,
+  .dot {
+    animation: none;
+    transition: none;
+  }
+  
+  .project-slider-creative {
+    scroll-behavior: auto;
+  }
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-    .project-container .header {
-        text-align: left;
-        margin-left: 0;
-        margin-top: 0;
-        font-size: 24px;
-    }
-
-    .project-slider {
-        width: 100%;
-        flex-wrap: nowrap;
-    }
-
-    .project-item {
-        width: 80%;
-        min-width: 250px;
-        margin: 0 10px;
-    }
-
-    .project-details p {
-        font-size: 14px;
-    }
-
-    .project-details ul {
-        padding-left: 15px;
-    }
-
-    .scroll-btn {
-        font-size: 20px;
-        padding: 10px 15px;
-    }
+/* Print Styles */
+@media print {
+  .floating-elements,
+  .navigation-arrows,
+  .project-counter {
+    display: none;
+  }
+  
+  .project-card {
+    break-inside: avoid;
+    border-color: #333 !important;
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+  
+  .project-slider-creative {
+    display: block;
+    overflow: visible;
+  }
+  
+  .launch-button {
+    border-color: #333 !important;
+    color: #333 !important;
+  }
+  
+  .project-icon-image {
+    filter: none !important;
+  }
+  
+  /* Ensure proper layout in print */
+  .project-icon-float {
+    margin: 0 auto 16px auto !important;
+  }
+  
+  .card-content {
+    padding: 20px !important;
+  }
 }

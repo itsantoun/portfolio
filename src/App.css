@@ -70,6 +70,7 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
 }
+
 .scroll-animate {
   opacity: 0;
   transform: translateY(20px);
@@ -98,11 +99,44 @@ body {
   transform: none;
 }
 
+/* Ensure all direct children of container have proper width */
+.container > * {
+  width: 100%;
+}
 
+/* Make sure content doesn't overflow on mobile */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive text sizing */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+p, li {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Media Queries */
 @media (max-width: 1024px) {
   .nav-wrapper {
     max-width: 90%;
-    padding: 0.5rem 0; /* Reduce vertical padding */
+    padding: 0.5rem 0;
   }
 
   .portfolio-title {
@@ -116,13 +150,19 @@ body {
   .hero-content {
     max-width: 80%;
   }
+  
+  #homePage,
+  #Projects,
+  #WorkExperience {
+    padding: 40px 20px;
+  }
 }
 
 @media (max-width: 768px) {
   .nav-wrapper {
     width: 100%;
     border-radius: 0;
-    padding: 0.4rem 0; /* Further reduce height */
+    padding: 0.4rem 0;
   }
 
   .nav-content {
@@ -144,13 +184,19 @@ body {
   .hero-content {
     max-width: 100%;
   }
+  
+  #homePage,
+  #Projects,
+  #WorkExperience {
+    padding: 30px 15px;
+  }
 }
 
 @media (max-width: 480px) {
   .nav-wrapper {
     border-radius: 10%;
     overflow: hidden;
-    height: 150px;
+    height: auto;
     padding: 0.1rem 0;
   }
 
@@ -165,7 +211,7 @@ body {
   }
 
   .logo {
-    height: 30px; /* Adjust logo size to fit reduced height */
+    height: 30px;
   }
 
   .hero-container {
@@ -179,5 +225,20 @@ body {
 
   .hero-content h2 {
     font-size: 1.8rem;
+  }
+  
+  #homePage,
+  #Projects,
+  #WorkExperience {
+    padding: 20px 10px;
+  }
+  
+  .Footer {
+    padding: 15px 0;
+    font-size: 12px;
+  }
+  
+  .Navbar {
+    padding: 10px 15px;
   }
 }

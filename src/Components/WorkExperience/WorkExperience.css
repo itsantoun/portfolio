@@ -1,309 +1,488 @@
-/* Header styling */
-.work-experience-container .header {
-    color: black;
-    text-align: left;
-    width: 100%;
-    margin-left: 30%;
-    margin-top: -2%;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    animation: fadeIn 1s ease-in-out; /* Only the text fades in */
-     font-family: 'Courier New', Courier, monospace;
+/* Work Experience Section Styling - Minimalist Theme */
+.timeline-container {
+ width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  box-sizing: border-box;
 }
 
-/* Emoji styling */
-.emoji {
-    margin-left: 10px; /* Add space between the text and emoji */
-    font-size: 30px; /* Adjust the size of the emoji */
-    animation: bounce 2s ease-in-out; /* Apply bounce animation for the emoji */
-    animation-fill-mode: forwards; /* Ensure it stays in its final position after animation */
-    opacity: 1; /* Make the emoji visible */
-    animation-delay: 1s; /* Delay the bounce until after the fade-in of the text */
+/* Header Section */
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 50px 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  justify-content: start;
 }
 
-/* Bounce animation */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px); /* Move the emoji up */
-    }
+.header-icon {
+  color: #333;
+  transition: all 0.3s ease;
 }
 
-/* Fade-in animation for the entire header */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.timeline-header:hover .header-icon {
+  transform: rotate(10deg);
 }
 
-/* Work Experience Section */
-.work-experience-container {
-    padding: 2vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    margin-top: 20px;
-    position: relative;
-    background-color: white;
-    font-family: 'Roboto', sans-serif; /* Improved font choice */
+/* Timeline Structure */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Scrollable area */
-.work-experience-slider {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory;
-    padding: 20px;
-    width: 73%;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    margin: 0 auto;
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #ddd;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  transition: all 0.3s ease;
 }
 
-/* Hide scrollbar for WebKit browsers */
-.work-experience-slider::-webkit-scrollbar {
-    display: none;
+.timeline:hover::after {
+  background-color: #333;
 }
 
-/* Work Experience item */
-.work-experience-item {
-    background-color: #FFFFFF; /* More neutral background */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align content to the left for a cleaner look */
-    justify-content: flex-start;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    min-height: 450px; /* Slightly increased height for better content spacing */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    overflow: hidden;
-    border: 1px solid #E0E0E0; /* Subtle border to define the item */
-    background-color: #F9F9F9;
-    position: relative;
+/* Timeline Items */
+.timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
 }
 
-.work-experience-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #f0f0f0, #e0e0e0); /* Soft background gradient */
-    z-index: -1;
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  background-color: white;
+  border: 2px solid #ddd;
+  top: 30px;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect to show colors */
-.work-experience-item:hover {
-    transform: translateY(-8px); /* Slightly stronger hover effect */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    filter: grayscale(0%);
+/* Left side items */
+.timeline-item.left {
+  left: 0;
 }
 
-/* Work Experience details */
-.work-experience-details {
-    text-align: left;
-    width: 100%;
-    white-space: normal;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Left-align text for better readability */
-    justify-content: flex-start;
-    height: 100%;
-    font-size: 14px;
+.timeline-item.left::after {
+  right: -10px;
 }
 
-.work-experience-details p {
-    margin: 10px 0;
-    font-size: 16px; /* Slightly larger text for company name and role */
-    color: #333;
-    font-weight: 500;
+/* Right side items */
+.timeline-item.right {
+  left: 50%;
 }
 
-.work-experience-details p strong {
-    font-weight: bold; /* Make labels bold for emphasis */
+.timeline-item.right::after {
+  left: -10px;
 }
 
-.work-experience-details p span {
-    font-weight: 400; /* Non-bold text */
+/* Timeline Content */
+.timeline-content {
+  background-color: white;
+  border: 2px solid #ddd;
+  padding: 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.work-experience-details ul {
-    list-style-type: none; /* Removes default bullet points */
-    padding-left: 0;
-    margin: 10px 0;
-    color: gray;
+.timeline-content:hover {
+  border-color: #333;
+  transform: translateY(-3px);
 }
 
-.work-experience-details li {
-    position: relative;
-    padding-left: 30px; /* Space for the icon at the beginning */
-    margin-bottom: 8px;
-    font-size: 14px; /* Adjust as needed */
-    line-height: 1.6; /* Ensures multi-line text spacing */
+.timeline-content:hover + .timeline-item::after,
+.timeline-item:hover::after {
+  border-color: #333;
+  background-color: #f9f9f9;
 }
 
-/* Default monochrome icon */
-.work-experience-details li i {
-    position: absolute;
-    left: 0; /* Ensures icon is at the very beginning */
-    top: 0; /* Aligns the icon at the top of the list item */
-    color: #B0B0B0; /* Monochrome gray color by default */
-    font-size: 18px; /* Adjust size of the icon */
-    line-height: 1; /* Ensures the icon stays aligned at the top */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+/* Timeline Header Info */
+.timeline-header-info {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Hover effect: change both icon and text color */
-.work-experience-item:hover .work-experience-details li {
-    color: black; /* Change text color on hover */
+.timeline-date,
+.timeline-company,
+.timeline-role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.work-experience-item:hover .work-experience-details li i {
-    color: black; /* Change icon color on hover */
+.timeline-date {
+  font-size: 14px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
-.work-experience-details a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007BFF; /* Brighter button color */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+.date-icon {
+  color: #666;
+  font-size: 12px;
 }
 
-.work-experience-details a:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+.timeline-company {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Scroll buttons */
-.scroll-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 10;
+.company-icon {
+  color: #333;
+  font-size: 16px;
 }
 
-.scroll-btn {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+.timeline-role {
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.scroll-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+.role-icon {
+  color: #666;
+  font-size: 14px;
 }
 
-.scroll-btn.left {
-    margin-right: auto;
+.date-text,
+.company-text,
+.role-text {
+  transition: all 0.3s ease;
 }
 
-.scroll-btn.right {
-    margin-left: auto;
+.timeline-content:hover .company-text {
+  color: #333;
 }
 
+/* Timeline Dot & Connector */
+.timeline-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  /* background-color: #333; */
+  top: 35px;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
 
-  .work-experience-item {
-    animation: fadeIn 0.8s ease-out;
-    animation-fill-mode: both;
+.timeline-item.left .timeline-dot {
+  right: -6px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -6px;
+}
+
+.timeline-content:hover ~ .timeline-dot {
+  background-color: #666;
+  transform: scale(1.2);
+}
+
+.timeline-connector {
+  display: none; /* Hidden as we use the main timeline line */
+}
+
+/* Responsibilities List */
+.timeline-responsibilities {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.timeline-responsibilities li {
+  position: relative;
+  padding: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  border-left: 2px solid #ddd;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.timeline-responsibilities li::before {
+  content: '▸';
+  position: absolute;
+  left: -8px;
+  top: 8px;
+  color: #ddd;
+  font-size: 12px;
+  background-color: white;
+  width: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.timeline-responsibilities li:hover {
+  border-color: #333;
+  color: #333;
+  padding-left: 25px;
+}
+
+.timeline-responsibilities li:hover::before {
+  color: #333;
+}
+
+/* Tools Section */
+.timeline-tools {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.tools-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tools-icon {
+  color: #333;
+  font-size: 12px;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #666;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.tool-item:hover {
+  border-color: #333;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Arrow Indicators for Left/Right */
+.timeline-item.left .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: -12px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #ddd;
+  border-right: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-item.right .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #ddd;
+  border-left: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover::after {
+  border-left-color: #333;
+  border-right-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .timeline-container {
+    width: 90%;
+    padding: 60px 15px;
   }
   
-  /* Delay animations for each item */
-  .work-experience-item:nth-child(1) { animation-delay: 0.1s; }
-  .work-experience-item:nth-child(2) { animation-delay: 0.3s; }
-  .work-experience-item:nth-child(3) { animation-delay: 0.5s; }
-  .work-experience-item:nth-child(4) { animation-delay: 0.5s; }
-  .work-experience-item:nth-child(5) { animation-delay: 0.5s; }
-  .work-experience-item:nth-child(6) { animation-delay: 0.5s; }
-  .work-experience-item:nth-child(3) { animation-delay: 0.5s; }
-  /* Add more delays as needed */
- 
-
-  /* Work Experience Item hover effect */
-.work-experience-item.hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    filter: grayscale(0%);
+  .timeline-header {
+    font-size: 2.2rem;
+  }
+  
+  .timeline-item {
+    padding: 15px 35px;
+  }
+  
+  .timeline-content {
+    padding: 25px;
+  }
 }
 
-/* Hover effect: change both icon and text color */
-.work-experience-item.hover .work-experience-details li {
-    color: black;
-}
-
-.work-experience-item.hover .work-experience-details li i {
-    color: black;
-}
-
-
-/* Responsive design */
 @media (max-width: 768px) {
-
-    
-    .work-experience-slider {
-        width: 90%;
-    }
-
-    .work-experience-container .header {
-        text-align: left;  
-        margin-left: 0; 
-        margin-top: 0; 
-        font-size: 24px; 
-    }
-
-    .work-experience-item {
-        width: 280px;
-        min-height: 400px;
-        padding: 20px;
-    }
-
-    .work-experience-details p {
-        font-size: 14px;
-    }
-
-    .work-experience-details ul {
-        padding-left: 15px;
-    }
-
-    .scroll-btn {
-        font-size: 20px;
-        padding: 10px 15px;
-    }
+  .timeline-container {
+    width: 100%;
+    padding: 40px 15px;
+  }
+  
+  .timeline-header {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Mobile Timeline - Single Column */
+  .timeline::after {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  .timeline-item.right {
+    left: 0%;
+  }
+  
+  .timeline-item::after {
+    left: 20px;
+  }
+  
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 20px;
+  }
+  
+  .timeline-dot {
+    left: 24px !important;
+  }
+  
+  .timeline-item.left .timeline-content::after,
+  .timeline-item.right .timeline-content::after {
+    left: -12px;
+    border: 10px solid transparent;
+    border-right-color: #ddd;
+    border-left: 0;
+  }
+  
+  .timeline-content:hover::after {
+    border-right-color: #333;
+    border-left-color: transparent;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+  }
+  
+  .timeline-company {
+    font-size: 16px;
+  }
+  
+  .timeline-role {
+    font-size: 14px;
+  }
 }
 
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 30px 10px;
+  }
+  
+  .timeline-header {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .timeline-item {
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+  
+  .timeline::after {
+    left: 20px;
+  }
+  
+  .timeline-item::after {
+    left: 10px;
+  }
+  
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 10px;
+  }
+  
+  .timeline-dot {
+    left: 14px !important;
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+  
+  .timeline-header-info {
+    gap: 8px;
+  }
+  
+  .timeline-date {
+    font-size: 12px;
+  }
+  
+  .timeline-company {
+    font-size: 14px;
+  }
+  
+  .timeline-role {
+    font-size: 12px;
+  }
+  
+  .timeline-responsibilities li {
+    font-size: 13px;
+    padding: 6px 0 6px 18px;
+  }
+  
+  .tools-header {
+    font-size: 12px;
+  }
+  
+  .tool-item {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+}
