@@ -119,6 +119,7 @@ export const WORK_EXPERIENCE = [
             "Operating the lighting and sound console, installing lanterns on the catwalk, operating the sound mixer, and video projector, and installing and setup microphones.",
             "Set up and managed live streaming."
         ],
+         tools: ["Midas M32, Presonus, Avolite, BlackMagic, OBS, Adobe Premiere Pro, Youtube Live" ]
     },
 
     {
