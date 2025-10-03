@@ -108,7 +108,7 @@ export const WORK_EXPERIENCE = [
             "IT Specialist: Manage server, networking and provide IT support",
             "Software Developer: Buid and design a software for managing oil purchases, keep track of items, and generate monthly reports",
         ],
-        tools: ["VS Code, GitHub, Git, ReactJS, CSS, Firebase"]
+        tools: ["VS Code, GitHub, Git, ReactJS, CSS, Firebase, Networkingm Synology NAS"]
     },
     {
         title: "University Student Employment- Stage Assistant:",
@@ -160,7 +160,7 @@ export const WORK_EXPERIENCE = [
 
 export const MY_PROJECTS = [
     {
-        icon: require("../Assets/melodius.png"),
+        // icon: require("../Assets/melodius.png"),
         title: "Melodius",
         date: "Final Project",
         url: "https://github.com/itsantoun/Melodius-Final-Project.git",
