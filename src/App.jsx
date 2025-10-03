@@ -242,7 +242,7 @@
 // export default App;
 
 import React, { useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import Navbar from './Components/Navbar/Navbar/Navbar';
@@ -262,7 +262,6 @@ function MainPage() {
   useEffect(() => {
     if (!scrollRef.current) return;
     
-    // Initialize Locomotive Scroll
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
@@ -279,7 +278,6 @@ function MainPage() {
     
     scrollInstance.current = scroll;
 
-    // Function to update scroll
     const updateScroll = () => {
       if (scrollInstance.current) {
         setTimeout(() => {
@@ -288,16 +286,13 @@ function MainPage() {
       }
     };
 
-    // Update when images load
     const images = document.querySelectorAll('img');
     images.forEach(img => {
       img.addEventListener('load', updateScroll);
     });
 
-    // Update on window resize
     window.addEventListener('resize', updateScroll);
 
-    // Listen for custom event when Firebase data loads
     const handleDataLoaded = () => {
       updateScroll();
     };
@@ -335,7 +330,7 @@ function MainPage() {
 
 function App() {
   return (
-    <Router basename="/portfolio">
+    <Router>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
