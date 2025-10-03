@@ -1,38 +1,17 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9086bfdb.css",
-    "main.js": "/portfolio/static/js/main.d6ad4c2e.js",
+    "main.css": "/portfolio/static/css/main.cbfe8239.css",
+    "main.js": "/portfolio/static/js/main.bb012591.js",
     "static/js/787.95ad528f.chunk.js": "/portfolio/static/js/787.95ad528f.chunk.js",
-    "static/media/tourinleb.png": "/portfolio/static/media/tourinleb.56a29c4d571c0bd11f7d.png",
-    "static/media/melodius.png": "/portfolio/static/media/melodius.8ddb9812c0ea0c11f350.png",
     "static/media/me4.jpeg": "/portfolio/static/media/me4.efa68bacc83192965a40.jpeg",
-    "static/media/RoomBookingWebsite.png": "/portfolio/static/media/RoomBookingWebsite.f4b2bc98d2b221418f68.png",
     "static/media/me.png": "/portfolio/static/media/me.4bf1ac68825625c1d22e.png",
-    "static/media/Xcode.png": "/portfolio/static/media/Xcode.9277efe1783db2e61b32.png",
-    "static/media/vscode.png": "/portfolio/static/media/vscode.6acf7130202323bec1fc.png",
-    "static/media/HTML5.png": "/portfolio/static/media/HTML5.2cd5d05c9660ec55992e.png",
-    "static/media/Linux.png": "/portfolio/static/media/Linux.30b87c36aaec73885fd2.png",
-    "static/media/Swift.png": "/portfolio/static/media/Swift.0f0f86b452d179ddaab2.png",
-    "static/media/Python.png": "/portfolio/static/media/Python.65c0e9243c20520b4fdf.png",
-    "static/media/photoshop.png": "/portfolio/static/media/photoshop.b62a0a37e8e3c303054e.png",
-    "static/media/Google Cloud.png": "/portfolio/static/media/Google Cloud.82db605aef72391d7e03.png",
-    "static/media/MongoDB.png": "/portfolio/static/media/MongoDB.b723bb18907da666f951.png",
-    "static/media/Figma.png": "/portfolio/static/media/Figma.2b512d290bb8b0334d7c.png",
-    "static/media/C.png": "/portfolio/static/media/C.22e9ccb5444713a02310.png",
-    "static/media/PHP.png": "/portfolio/static/media/PHP.47ef190b3fc4f67ce062.png",
-    "static/media/Java.png": "/portfolio/static/media/Java.00c3be7f346b2c00213d.png",
-    "static/media/Docker.png": "/portfolio/static/media/Docker.4e29864a43ac93d4f457.png",
-    "static/media/React.png": "/portfolio/static/media/React.98ff38735baa4c1b0381.png",
-    "static/media/sqlserver.png": "/portfolio/static/media/sqlserver.529fe9ce8393f4e83287.png",
-    "static/media/Svelte.png": "/portfolio/static/media/Svelte.1fdb746105410b233991.png",
-    "static/media/eclipse.png": "/portfolio/static/media/eclipse.cdbdea813edbd56b86ab.png",
     "index.html": "/portfolio/index.html",
-    "main.9086bfdb.css.map": "/portfolio/static/css/main.9086bfdb.css.map",
-    "main.d6ad4c2e.js.map": "/portfolio/static/js/main.d6ad4c2e.js.map",
+    "main.cbfe8239.css.map": "/portfolio/static/css/main.cbfe8239.css.map",
+    "main.bb012591.js.map": "/portfolio/static/js/main.bb012591.js.map",
     "787.95ad528f.chunk.js.map": "/portfolio/static/js/787.95ad528f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9086bfdb.css",
-    "static/js/main.d6ad4c2e.js"
+    "static/css/main.cbfe8239.css",
+    "static/js/main.bb012591.js"
   ]
 }
