@@ -317,8 +317,6 @@ const Projects = () => {
                   </div>
                   <div className="title-section">
                     <h4 className="project-title-creative">{project.title}</h4>
-                    {/* Debug: Show order number */}
-                    <small style={{color: '#888', fontSize: '12px'}}>Order: {project.order}</small>
                   </div>
                 </div>
 

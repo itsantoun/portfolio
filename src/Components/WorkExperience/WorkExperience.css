@@ -9,6 +9,7 @@
   box-sizing: border-box;
 }
 
+
 /* Header Section */
 .timeline-header {
   display: flex;
@@ -23,6 +24,9 @@
   padding-bottom: 20px;
   border-bottom: 2px solid #ddd;
   justify-content: start;
+  white-space: nowrap;
+  overflow: visible;
+  flex-wrap: nowrap;
 }
 
 .header-icon {
