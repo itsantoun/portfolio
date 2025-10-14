@@ -19,13 +19,12 @@ const WorkExperience = () => {
           if (data) {
             const workExpArray = Object.keys(data).map(key => ({
               id: key,
-              ...data[key]
+              ...data[key],
+              order: data[key].order || 0 // Add order field
             }));
-            // Sort by date (most recent first) if you have dates
-            workExpArray.sort((a, b) => {
-              // You can add custom sorting logic here based on dates
-              return 0; // Default no sorting
-            });
+            
+            // Sort by order field instead of date
+            workExpArray.sort((a, b) => (a.order || 0) - (b.order || 0));
             setWorkExperiences(workExpArray);
           } else {
             setWorkExperiences([]);
@@ -53,6 +52,17 @@ const WorkExperience = () => {
 
     return () => unsubscribe();
   }, []);
+
+  // Debug: Log work experiences order
+  useEffect(() => {
+    if (workExperiences.length > 0) {
+      console.log('Work experiences order:', workExperiences.map(exp => ({ 
+        company: exp.company, 
+        position: exp.position, 
+        order: exp.order 
+      })));
+    }
+  }, [workExperiences]);
 
   // Update Locomotive Scroll when experiences change
   useEffect(() => {
@@ -100,6 +110,7 @@ const WorkExperience = () => {
     <section className="timeline-container" id="work-experience">
       <h3 className="timeline-header" data-scroll data-scroll-speed="0.5">
         Work Experience <FaBriefcase className="header-icon" />
+        <span className="experience-count">({workExperiences.length})</span>
       </h3>
       <div className="timeline">
         {workExperiences.map((experience, index) => (

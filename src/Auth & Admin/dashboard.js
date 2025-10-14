@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, database } from './firebase';
 import { signOut } from 'firebase/auth';
-import { ref, onValue, set, push, remove } from 'firebase/database';
+import { ref, onValue, set, push, remove, update } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import './dashboard.css';
@@ -20,6 +20,10 @@ const Dashboard = () => {
   const [editingWorkExp, setEditingWorkExp] = useState(null);
   const [editingSkillGroup, setEditingSkillGroup] = useState(null);
   const [activeTab, setActiveTab] = useState('projects');
+
+  // Drag and drop states
+  const [draggedItem, setDraggedItem] = useState(null);
+  const [dragOverItem, setDragOverItem] = useState(null);
 
   // Project form data
   const [projectFormData, setProjectFormData] = useState({
@@ -74,8 +78,11 @@ const Dashboard = () => {
       if (data) {
         const projectsArray = Object.keys(data).map(key => ({
           id: key,
-          ...data[key]
+          ...data[key],
+          order: data[key].order || 0 // Default order to 0 if not set
         }));
+        // Sort by order
+        projectsArray.sort((a, b) => (a.order || 0) - (b.order || 0));
         setProjects(projectsArray);
       } else {
         setProjects([]);
@@ -90,8 +97,10 @@ const Dashboard = () => {
       if (data) {
         const workExpArray = Object.keys(data).map(key => ({
           id: key,
-          ...data[key]
+          ...data[key],
+          order: data[key].order || 0
         }));
+        workExpArray.sort((a, b) => (a.order || 0) - (b.order || 0));
         setWorkExperiences(workExpArray);
       } else {
         setWorkExperiences([]);
@@ -106,13 +115,109 @@ const Dashboard = () => {
       if (data) {
         const skillsArray = Object.keys(data).map(key => ({
           id: key,
-          ...data[key]
+          ...data[key],
+          order: data[key].order || 0
         }));
+        skillsArray.sort((a, b) => (a.order || 0) - (b.order || 0));
         setSkills(skillsArray);
       } else {
         setSkills([]);
       }
     });
+  };
+
+  // Drag and Drop Handlers
+  const handleDragStart = (e, index, type) => {
+    setDraggedItem({ index, type });
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', e.currentTarget);
+  };
+
+  const handleDragOver = (e, index, type) => {
+    e.preventDefault();
+    if (draggedItem && draggedItem.type === type) {
+      setDragOverItem({ index, type });
+    }
+  };
+
+  const handleDragLeave = () => {
+    setDragOverItem(null);
+  };
+
+  const handleDrop = async (e, dropIndex, type) => {
+    e.preventDefault();
+    if (!draggedItem || draggedItem.type !== type) return;
+
+    const dragIndex = draggedItem.index;
+    
+    if (dragIndex === dropIndex) {
+      setDraggedItem(null);
+      setDragOverItem(null);
+      return;
+    }
+
+    let items = [];
+    switch (type) {
+      case 'projects':
+        items = [...projects];
+        break;
+      case 'workExperience':
+        items = [...workExperiences];
+        break;
+      case 'skills':
+        items = [...skills];
+        break;
+      default:
+        return;
+    }
+
+    // Reorder items
+    const [movedItem] = items.splice(dragIndex, 1);
+    items.splice(dropIndex, 0, movedItem);
+
+    // Update order property and save to database
+    const updatedItems = items.map((item, index) => ({
+      ...item,
+      order: index
+    }));
+
+    try {
+      await updateOrderInDatabase(updatedItems, type);
+    } catch (error) {
+      console.error('Error updating order:', error);
+      alert('Error updating order. Please try again.');
+    }
+
+    setDraggedItem(null);
+    setDragOverItem(null);
+  };
+
+  const updateOrderInDatabase = async (items, type) => {
+    const updates = {};
+    items.forEach(item => {
+      const { id, ...itemData } = item;
+      updates[`${type}/${id}/order`] = item.order;
+    });
+
+    try {
+      await update(ref(database), updates);
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const getDragDropClasses = (index, type) => {
+    const classes = ['draggable-item'];
+    
+    if (draggedItem && draggedItem.index === index && draggedItem.type === type) {
+      classes.push('dragging');
+    }
+    
+    if (dragOverItem && dragOverItem.index === index && dragOverItem.type === type) {
+      classes.push('drag-over');
+    }
+    
+    return classes.join(' ');
   };
 
   const handleLogout = async () => {
@@ -269,11 +374,11 @@ const Dashboard = () => {
     try {
       let iconUrl = null;
       
-     if (projectFormData.icon instanceof File) {
-  iconUrl = await convertImageToBase64(projectFormData.icon);
-} else if (projectFormData.icon) {
-  iconUrl = projectFormData.icon;
-}
+      if (projectFormData.icon instanceof File) {
+        iconUrl = await convertImageToBase64(projectFormData.icon);
+      } else if (projectFormData.icon) {
+        iconUrl = projectFormData.icon;
+      }
 
       const projectData = {
         title: projectFormData.title,
@@ -281,7 +386,8 @@ const Dashboard = () => {
         responsibilities: projectFormData.responsibilities.split('\n').filter(item => item.trim()),
         tools: [projectFormData.tools],
         url: projectFormData.url,
-        icon: iconUrl || '/default-project-icon.png'
+        icon: iconUrl || '/default-project-icon.png',
+        order: editingProject ? projects.find(p => p.id === editingProject.id)?.order || projects.length : projects.length
       };
 
       if (editingProject) {
@@ -313,7 +419,8 @@ const Dashboard = () => {
         endDate: workExpFormData.current ? 'Present' : workExpFormData.endDate,
         current: workExpFormData.current,
         responsibilities: workExpFormData.responsibilities.split('\n').filter(item => item.trim()),
-        technologies: workExpFormData.technologies.split(',').map(tech => tech.trim()).filter(tech => tech)
+        technologies: workExpFormData.technologies.split(',').map(tech => tech.trim()).filter(tech => tech),
+        order: editingWorkExp ? workExperiences.find(w => w.id === editingWorkExp.id)?.order || workExperiences.length : workExperiences.length
       };
 
       if (editingWorkExp) {
@@ -356,7 +463,8 @@ const Dashboard = () => {
 
       const skillsData = {
         title: skillsFormData.title,
-        skills: skillsWithIcons
+        skills: skillsWithIcons,
+        order: editingSkillGroup ? skills.find(s => s.id === editingSkillGroup.id)?.order || skills.length : skills.length
       };
 
       if (editingSkillGroup) {
@@ -588,8 +696,16 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="dashboard-projects-grid">
-          {projects.map((project) => (
-            <div key={project.id} className="dashboard-project-card">
+          {projects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className={`dashboard-project-card ${getDragDropClasses(index, 'projects')}`}
+              draggable
+              onDragStart={(e) => handleDragStart(e, index, 'projects')}
+              onDragOver={(e) => handleDragOver(e, index, 'projects')}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => handleDrop(e, index, 'projects')}
+            >
               <div className="dashboard-project-header">
                 <div className="dashboard-project-title-section">
                   <div className="dashboard-project-header-with-image">
@@ -611,6 +727,9 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="dashboard-project-actions">
+                  <div className="dashboard-drag-handle" title="Drag to reorder">
+                    ⋮⋮
+                  </div>
                   <button 
                     className="dashboard-edit-button"
                     onClick={() => handleEditProject(project)}
@@ -685,8 +804,16 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="dashboard-projects-grid">
-          {workExperiences.map((workExp) => (
-            <div key={workExp.id} className="dashboard-project-card">
+          {workExperiences.map((workExp, index) => (
+            <div 
+              key={workExp.id} 
+              className={`dashboard-project-card ${getDragDropClasses(index, 'workExperience')}`}
+              draggable
+              onDragStart={(e) => handleDragStart(e, index, 'workExperience')}
+              onDragOver={(e) => handleDragOver(e, index, 'workExperience')}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => handleDrop(e, index, 'workExperience')}
+            >
               <div className="dashboard-project-header">
                 <div className="dashboard-project-title-section">
                   <div>
@@ -699,6 +826,9 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="dashboard-project-actions">
+                  <div className="dashboard-drag-handle" title="Drag to reorder">
+                    ⋮⋮
+                  </div>
                   <button 
                     className="dashboard-edit-button"
                     onClick={() => handleEditWorkExperience(workExp)}
@@ -758,8 +888,16 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="dashboard-projects-grid">
-          {skills.map((skillGroup) => (
-            <div key={skillGroup.id} className="dashboard-project-card">
+          {skills.map((skillGroup, index) => (
+            <div 
+              key={skillGroup.id} 
+              className={`dashboard-project-card ${getDragDropClasses(index, 'skills')}`}
+              draggable
+              onDragStart={(e) => handleDragStart(e, index, 'skills')}
+              onDragOver={(e) => handleDragOver(e, index, 'skills')}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => handleDrop(e, index, 'skills')}
+            >
               <div className="dashboard-project-header">
                 <div className="dashboard-project-title-section">
                   <div>
@@ -770,6 +908,9 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="dashboard-project-actions">
+                  <div className="dashboard-drag-handle" title="Drag to reorder">
+                    ⋮⋮
+                  </div>
                   <button 
                     className="dashboard-edit-button"
                     onClick={() => handleEditSkillGroup(skillGroup)}
@@ -786,8 +927,8 @@ const Dashboard = () => {
               </div>
               <div className="dashboard-project-details">
                 <div className="dashboard-skills-list">
-                  {skillGroup.skills?.slice(0, 6).map((skill, index) => (
-                    <div key={index} className="dashboard-skill-tag-with-icon">
+                  {skillGroup.skills?.slice(0, 6).map((skill, skillIndex) => (
+                    <div key={skillIndex} className="dashboard-skill-tag-with-icon">
                       {skill.icon && (
                         <img 
                           src={skill.icon} 
@@ -812,6 +953,7 @@ const Dashboard = () => {
     </div>
   );
 
+  // ... (rest of the form rendering methods remain the same)
   const renderProjectForm = () => (
     <div className="dashboard-modal-overlay">
       <div className="dashboard-modal-content">

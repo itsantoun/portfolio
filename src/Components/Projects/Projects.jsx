@@ -12,7 +12,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Load projects from Firebase
+  // Load projects from Firebase - FIXED: Added order sorting
   useEffect(() => {
     const projectsRef = ref(database, 'projects');
     const unsubscribe = onValue(projectsRef, (snapshot) => {
@@ -20,8 +20,12 @@ const Projects = () => {
       if (data) {
         const projectsArray = Object.keys(data).map(key => ({
           id: key,
-          ...data[key]
+          ...data[key],
+          order: data[key].order || 0 // Ensure order field is included
         }));
+        
+        // FIX: Sort projects by order field
+        projectsArray.sort((a, b) => (a.order || 0) - (b.order || 0));
         setProjects(projectsArray);
       } else {
         setProjects([]);
@@ -200,6 +204,13 @@ const Projects = () => {
     }
   }, [projects]);
 
+  // Debug: Log projects order
+  useEffect(() => {
+    if (projects.length > 0) {
+      console.log('Projects order:', projects.map(p => ({ title: p.title, order: p.order })));
+    }
+  }, [projects]);
+
   // Handle empty or loading states
   if (loading) {
     return (
@@ -306,6 +317,8 @@ const Projects = () => {
                   </div>
                   <div className="title-section">
                     <h4 className="project-title-creative">{project.title}</h4>
+                    {/* Debug: Show order number */}
+                    <small style={{color: '#888', fontSize: '12px'}}>Order: {project.order}</small>
                   </div>
                 </div>
 
@@ -388,9 +401,6 @@ const Projects = () => {
           ))}
         </div>
       </div>
-
-  
-      
     </section>
   );
 };

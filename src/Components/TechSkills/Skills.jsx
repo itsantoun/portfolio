@@ -16,8 +16,12 @@ function Skills() {
       if (data) {
         const skillsArray = Object.keys(data).map(key => ({
           id: key,
-          ...data[key]
+          ...data[key],
+          order: data[key].order || 0 // Add order field
         }));
+        
+        // Sort by order field
+        skillsArray.sort((a, b) => (a.order || 0) - (b.order || 0));
         setSkillsData(skillsArray);
       } else {
         setSkillsData([]);
@@ -37,6 +41,13 @@ function Skills() {
     setSelectedGroupIndex(index);
     setShowTitles(false);
   };
+
+  // Debug: Log skills order
+  useEffect(() => {
+    if (skillsData.length > 0) {
+      console.log('Skills order:', skillsData.map(s => ({ title: s.title, order: s.order })));
+    }
+  }, [skillsData]);
 
   if (loading) {
     return (
@@ -76,6 +87,7 @@ function Skills() {
                 />
               )}
               {skillGroup.title}
+  
             </div>
           ))}
         </div>

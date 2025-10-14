@@ -777,6 +777,57 @@
 .dashboard-modal-content-wide {
   max-width: 800px;
 }
+
+/* Drag and Drop Styles */
+.draggable-item {
+  transition: all 0.3s ease;
+  cursor: grab;
+}
+
+.draggable-item.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+  cursor: grabbing;
+}
+
+.draggable-item.drag-over {
+  border: 2px dashed #007bff;
+  background-color: #f8f9fa;
+}
+
+.dashboard-drag-handle {
+  cursor: grab;
+  padding: 8px;
+  margin-right: 8px;
+  color: #6c757d;
+  font-size: 16px;
+  user-select: none;
+}
+
+.dashboard-drag-handle:hover {
+  color: #007bff;
+}
+
+.draggable-item.dragging .dashboard-drag-handle {
+  cursor: grabbing;
+}
+
+/* Ensure cards are properly styled during drag operations */
+.dashboard-project-card {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-project-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 /* Responsive Design for Tabs */
 @media (max-width: 768px) {
   .dashboard-tabs {
