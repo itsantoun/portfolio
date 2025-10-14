@@ -269,11 +269,11 @@ const Dashboard = () => {
     try {
       let iconUrl = null;
       
-      if (projectFormData.icon instanceof File) {
-        iconUrl = '/default-project-icon.png';
-      } else if (projectFormData.icon) {
-        iconUrl = projectFormData.icon;
-      }
+     if (projectFormData.icon instanceof File) {
+  iconUrl = await convertImageToBase64(projectFormData.icon);
+} else if (projectFormData.icon) {
+  iconUrl = projectFormData.icon;
+}
 
       const projectData = {
         title: projectFormData.title,
