@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer';
 import Projects from './Components/Projects/Projects';
 import Login from './Auth & Admin/login';
 import Dashboard from './Auth & Admin/dashboard';
+import BlogPopup from './Components/BlogPopup/BlogPopup';
 import './App.css';
 
 function MainPage() {
@@ -75,6 +76,7 @@ function MainPage() {
         minHeight: '100vh'
       }}
     >
+      <BlogPopup />
       <Navbar />
       <Hero />
       <TechSkills />
